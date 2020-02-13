@@ -10,6 +10,8 @@ TagManager:
   - MultiBanana
   - Greenery
   - Platform
+  - monkeybounds
+  - mushroom
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - 
   - 
   - Layer 1
-  - 
+  - Background Image
   - 
   - 
   - 
