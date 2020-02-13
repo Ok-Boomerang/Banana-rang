@@ -19,7 +19,7 @@ public class Boomerang : MonoBehaviour
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _thrown = false;
         _home = GameObject.Find("MonkeyHand").transform;
-        _maxdistance = 20f;
+        _maxdistance = 40f;
         _speed = 15f;
         _forward = true;
         _travel = 0f;
@@ -31,11 +31,8 @@ public class Boomerang : MonoBehaviour
     {
         if (!_thrown)
         {
-            SetInHand();
             if (Input.GetKeyDown(KeyCode.Space))
-            {
-                _thrown = true;
-            }
+            {  _thrown = true; }
         }
         else
         {
@@ -62,6 +59,13 @@ public class Boomerang : MonoBehaviour
             }
         }
     }
+
+    private void LateUpdate()
+    {
+        if (!_thrown) 
+        { SetInHand(); }
+    }
+
     public void SetInHand()
     {
         transform.position = _home.position;
