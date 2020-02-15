@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 505624735}
   - component: {fileID: 505624736}
   - component: {fileID: 505624737}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Monkey
   m_TagString: Monkey
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f2fd3f357ffb64a97ac839b86353e24e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8b1d2550ca70426cb7643ed0fa520b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -558,7 +558,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c5db260a4937a74ba6e07b1c7345988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monkeybounds: {fileID: 0}
+  standingsideways: {fileID: 21300000, guid: b8b1d2550ca70426cb7643ed0fa520b0, type: 3}
+  jumpstance: {fileID: 21300000, guid: d2e9f573d8ea04f5f878bf11fafa1aa5, type: 3}
+  monkeythrow1: {fileID: 21300000, guid: 8c15972ac3d074fd8a0be74e62378fae, type: 3}
+  monkeythrow2: {fileID: 21300000, guid: 23590be89cf284325b23ffef6ee9ecee, type: 3}
+  walk1: {fileID: 21300000, guid: 6c83c07d400fd4e8c895a90ef69d75f3, type: 3}
+  walk2: {fileID: 21300000, guid: 256d7689f5a6f479290fac44c8939054, type: 3}
+  walk3: {fileID: 21300000, guid: 7285f1d47715b475e94f7fa68170b783, type: 3}
+  walk4: {fileID: 21300000, guid: a6c1168829edc4675ae44a18d4037d67, type: 3}
+  currSprite: {fileID: 0}
+  _mousedown: 0
+  monkeybounds: {fileID: 799861111}
 --- !u!50 &505624735
 Rigidbody2D:
   serializedVersion: 4
@@ -587,7 +597,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505624731}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -649,20 +659,20 @@ PolygonCollider2D:
       - {x: -0.31, y: 0.17}
       - {x: -0.31, y: 0.12}
       - {x: -0.32, y: 0.07}
---- !u!61 &505624737
-BoxCollider2D:
+--- !u!60 &505624737
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505624731}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.019806743, y: -0.58111167}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -672,9 +682,43 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.80580425, y: 0.33322522}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.29, y: -0.03}
+      - {x: 0.41, y: 0.08}
+      - {x: 0.42, y: 0.11}
+      - {x: 0.42, y: 0.17}
+      - {x: 0.41, y: 0.28}
+      - {x: 0.35, y: 0.47}
+      - {x: 0.14, y: 0.7}
+      - {x: -0.01, y: 0.77}
+      - {x: -0.089999996, y: 0.78}
+      - {x: -0.13, y: 0.78}
+      - {x: -0.22999999, y: 0.71}
+      - {x: -0.17999999, y: 0.61}
+      - {x: -0.39999998, y: 0.48}
+      - {x: -0.42999998, y: 0.38}
+      - {x: -0.42999998, y: 0.25}
+      - {x: -0.35999998, y: 0.14999999}
+      - {x: -0.26999998, y: 0.12}
+      - {x: -0.26999998, y: -0.08}
+      - {x: -0.29, y: -0.29}
+      - {x: -0.29, y: -0.089999996}
+      - {x: -0.32, y: 0.04}
+      - {x: -0.44, y: 0.04}
+      - {x: -0.53, y: -0.02}
+      - {x: -0.53999996, y: -0.089999996}
+      - {x: -0.53999996, y: -0.25}
+      - {x: -0.5, y: -0.34}
+      - {x: -0.34, y: -0.45999998}
+      - {x: -0.14, y: -0.52}
+      - {x: -0.16, y: -0.69}
+      - {x: -0.099999994, y: -0.76}
+      - {x: 0.12, y: -0.76}
+      - {x: 0.14999999, y: -0.75}
+      - {x: 0.32, y: -0.63}
+      - {x: 0.25, y: -0.52}
+      - {x: 0.29999998, y: -0.28}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2404,7 +2448,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1341770807}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: MonkeyHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2418,13 +2462,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341770806}
-  m_LocalRotation: {x: 0, y: 0, z: 0.41712955, w: 0.9088471}
-  m_LocalPosition: {x: 0.68, y: 0.25, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9981348, w: 0.061048605}
+  m_LocalPosition: {x: 0, y: -0.27, z: 0}
   m_LocalScale: {x: 0.215912, y: 0.215912, z: 0.215912}
   m_Children: []
   m_Father: {fileID: 505624733}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 49.307}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 173}
 --- !u!1 &1471485328
 GameObject:
   m_ObjectHideFlags: 0
@@ -3036,7 +3080,7 @@ GameObject:
   - component: {fileID: 2057397714}
   - component: {fileID: 2057397715}
   - component: {fileID: 2057397716}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Boomerang
   m_TagString: Boomerang
   m_Icon: {fileID: 0}
@@ -3099,13 +3143,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057397711}
-  m_LocalRotation: {x: -0, y: -0, z: 0.31160742, w: 0.9502109}
-  m_LocalPosition: {x: -15.300001, y: -4.6000004, z: 0}
-  m_LocalScale: {x: 0.22495356, y: 0.22495356, z: 0.22495349}
+  m_LocalRotation: {x: -0, y: -0, z: -0.8819437, w: 0.47135487}
+  m_LocalPosition: {x: -11.29, y: 0.93, z: 0}
+  m_LocalScale: {x: 0.21542452, y: 0.21542452, z: 0.21542446}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 36.312}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -123.755005}
 --- !u!50 &2057397714
 Rigidbody2D:
   serializedVersion: 4
