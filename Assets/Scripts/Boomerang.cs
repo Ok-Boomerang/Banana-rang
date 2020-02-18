@@ -6,8 +6,8 @@ using UnityEngine;
 public class Boomerang : MonoBehaviour
 {
     public Rigidbody2D _boom_rb;
-    private bool _thrown = false; //has the boomerang been thrown yet?
-    public float _maxdistance; // farthers distance it should travel
+    private bool _thrown; //has the boomerang been thrown yet?
+    private float _maxdistance = 40f; // farthers distance it should travel
     public Transform _home; // where the boomerang returns too
     private bool _forward = true; // is it in a forward or backward motion
     private Vector3 _distancereleased; // the distance it has traveled so far
@@ -16,11 +16,11 @@ public class Boomerang : MonoBehaviour
     private float _clickStart;
     private float _power;
     private float _distancetogo;
+    private bool _clicked; 
     private void Start()
     {
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _home = GameObject.Find("MonkeyHand").transform;
-        _maxdistance = 40f;
     }
 
     void Update()
@@ -32,17 +32,21 @@ public class Boomerang : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                _clicked = true;
                 _clickStart = Time.time;
+                GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = true;
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) & _clicked)
             {
+                _clicked = false;
                 _power = Time.time - _clickStart;
                 _distancetogo = ( _power * _maxdistance > _maxdistance ? _maxdistance : _power * _maxdistance );
                 _thrown = true;
                 _distancereleased = transform.position;
                 transform.rotation = Quaternion.Euler(0f, 0f, _lookAngle - 90f);
                 _boom_rb.velocity = transform.up * 20f;
+                GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = false;
             }
         }
         else if (_thrown)

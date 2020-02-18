@@ -1870,7 +1870,6 @@ GameObject:
   - component: {fileID: 2055413875}
   - component: {fileID: 2055413874}
   - component: {fileID: 2055413873}
-  - component: {fileID: 2055413876}
   m_Layer: 8
   m_Name: Monkey
   m_TagString: Untagged
@@ -1961,26 +1960,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2055413876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055413872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4102cd880174b418117cbb5920ae93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite1: {fileID: 0}
-  sprite2: {fileID: 0}
-  sprite3: {fileID: 0}
-  sprite4: {fileID: 0}
-  sprite5: {fileID: 0}
-  sprite6: {fileID: 0}
-  sprite7: {fileID: 0}
-  sprite8: {fileID: 0}
 --- !u!1 &2056270802
 GameObject:
   m_ObjectHideFlags: 0
