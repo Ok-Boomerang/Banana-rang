@@ -82,15 +82,6 @@ public class Boomerang : MonoBehaviour
         GameObject GO = other.gameObject;
         switch (GO.tag) // which object has it collided with 
         {
-            case "Monkey": // ignore this collision and implement no phyisics
-                Physics2D.IgnoreCollision(GO.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
-                break;
-            case "SingleBanana":
-                //Debug.Log("SingleBanana object");
-                break;
-            case "MultiBanana":
-                //Debug.Log("MultiBanana object");
-                break;
             case "Platform":
                 Debug.Log("Platform object");
                 break;
