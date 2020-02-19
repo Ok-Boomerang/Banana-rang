@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public Texture2D cursor;
     public Image fade;
     // Start is called before the first frame update
      private void Awake () {
@@ -24,10 +23,6 @@ public class Menu : MonoBehaviour
     
             var quitbtn = buttons.Find("Quit").GetComponent<Button>();
             quitbtn.onClick.AddListener(QuitGame);
-            var xspot = cursor.width / 2;
-            var yspot = cursor.height / 2;
-            Vector2 hotSpot = new Vector2(xspot,yspot);
-            Cursor.SetCursor(cursor, hotSpot, CursorMode.Auto);
         }
      private void StartGame () {
          SceneManager.LoadScene(3);
