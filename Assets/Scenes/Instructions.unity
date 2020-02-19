@@ -7182,7 +7182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057397711}
   m_LocalRotation: {x: -0, y: -0, z: -0.8819437, w: 0.47135487}
-  m_LocalPosition: {x: -11.29, y: 0.93, z: 0}
+  m_LocalPosition: {x: -15, y: -4.6, z: 0}
   m_LocalScale: {x: 0.21542452, y: 0.21542452, z: 0.21542446}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7332,3 +7332,4 @@ MonoBehaviour:
   _startBooms: 5
   gameOverPanel: {fileID: 0}
   gameOverText: {fileID: 0}
+  DebugMaterial: {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
