@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Boomerang : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Boomerang : MonoBehaviour
     private float _clickStart;
     private float _power;
     private float _distancetogo;
-    private bool _clicked; 
+    private bool _clicked;
     private void Start()
     {
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
@@ -25,43 +26,52 @@ public class Boomerang : MonoBehaviour
 
     void Update()
     {
-
-        _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
-        if (!_thrown)
+        if (BoomerangManager.boomerangsLeft > 0)
         {
-            if (Input.GetMouseButtonDown(0))
+            _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+            _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
+            if (!_thrown)
             {
-                _clicked = true;
-                _clickStart = Time.time;
-                GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = true;
-            }
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _clicked = true;
+                    _clickStart = Time.time;
+                    GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = true;
+                }
 
-            if (Input.GetMouseButtonUp(0) & _clicked)
+                if (Input.GetMouseButtonUp(0) & _clicked)
+                {
+                    _clicked = false;
+                    _power = Time.time - _clickStart;
+                    _distancetogo = (_power * _maxdistance > _maxdistance ? _maxdistance : _power * _maxdistance);
+                    _thrown = true;
+                    _distancereleased = transform.position;
+                    transform.rotation = Quaternion.Euler(0f, 0f, _lookAngle - 90f);
+                    _boom_rb.velocity = transform.up * 20f;
+                    GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = false;
+                    BoomerangManager.boomerangsLeft -= 1;
+                }
+            }
+            else if (_thrown)
             {
-                _clicked = false;
-                _power = Time.time - _clickStart;
-                _distancetogo = ( _power * _maxdistance > _maxdistance ? _maxdistance : _power * _maxdistance );
-                _thrown = true;
-                _distancereleased = transform.position;
-                transform.rotation = Quaternion.Euler(0f, 0f, _lookAngle - 90f);
-                _boom_rb.velocity = transform.up * 20f;
-                GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = false;
+                transform.Rotate(0, 0, 1100 * Time.deltaTime);
+                if (_forward & Vector3.Distance(_distancereleased, transform.position) >= _distancetogo)
+                {
+                    _forward = false;
+                    _boom_rb.velocity = _boom_rb.velocity * -1;
+                }
+                else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f)
+                {
+                    _thrown = false;
+                    _forward = true;
+                }
             }
         }
-        else if (_thrown)
+        else
         {
-            transform.Rotate (0,0,1100*Time.deltaTime);
-            if (_forward & Vector3.Distance(_distancereleased, transform.position) >= _distancetogo )
-            {
-                _forward = false;
-                _boom_rb.velocity = _boom_rb.velocity * -1 ;
-            }
-            else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f)
-            {
-                _thrown = false;
-                _forward = true;
-            }
+            BoomerangManager.boomerangsLeft = 5;
+            ScoreManager.Score = 0;
+            SceneManager.LoadScene(3);
         }
     }
     
