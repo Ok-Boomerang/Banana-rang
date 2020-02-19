@@ -6,6 +6,8 @@ using UnityEngine;
 public class Banana : MonoBehaviour
 {
     public Transform particle;
+    private bool single = false;
+    private bool multi = false;
     
     void Start()
     {
@@ -25,10 +27,28 @@ public class Banana : MonoBehaviour
 
     IEnumerator StopParticle()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
         var emissionModule = particle.GetComponent<ParticleSystem>().emission;
         emissionModule.enabled = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
+        if (gameObject.CompareTag("SingleBanana"))
+        {
+            single = true;
+        }
+        else if (gameObject.CompareTag("MultiBanana"))
+        {
+            multi = true;
+        }
         Destroy(gameObject);
+        if (single)
+        {
+            ScoreManager.Score += 1;
+            single = false;
+        }
+        if (multi)
+        {
+            ScoreManager.Score += 3;
+            multi = false;
+        }
     }
 }
