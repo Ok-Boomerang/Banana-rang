@@ -15,12 +15,6 @@ public class Menu : MonoBehaviour
             Vector2 hotSpot = new Vector2(xspot,yspot);
             Cursor.SetCursor(cursor, hotSpot, CursorMode.Auto);
      }
-
-     public static void StartGame () {
-         SceneManager.LoadScene(3);
-     }
-     
-
      public static void QuitGame () {
 #if UNITY_EDITOR
          EditorApplication.isPlaying = false;
@@ -28,11 +22,8 @@ public class Menu : MonoBehaviour
         Application.Quit();
 #endif
      }
-
-     public static void ShowLevels () {
-         SceneManager.LoadScene(1);
-     }
-     public static void ShowInstructions () {
-         SceneManager.LoadScene(2);
+     public static void LoadLevel(int levelnum)
+     {
+         SceneManager.LoadScene(levelnum);
      }
 }
