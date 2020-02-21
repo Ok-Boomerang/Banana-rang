@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class monkey : MonoBehaviour
@@ -23,6 +24,7 @@ public class monkey : MonoBehaviour
     // Vars for Sprites 
     private float _spriteratechagne = 0.15f; // how fast the sprites change
     private Vector3 _scale; // used which way the sprite is facing;
+    private Vector3 _childscale;
     public bool _mousedown; // used to change the throwing sprite
     // end of sprite vars 
     
@@ -49,6 +51,7 @@ public class monkey : MonoBehaviour
         //storing useful components
         spriteRenderer = GetComponent<SpriteRenderer>();
         _scale = transform.localScale;
+        _childscale = transform.GetChild(0).localScale;
         monkeyRB = gameObject.GetComponent<Rigidbody2D>();
         
         // storing the boundaries that the monkey can walk around in
@@ -64,7 +67,7 @@ public class monkey : MonoBehaviour
     void Update()
     {
         //get key inputs for the monkey's movement
-        _up = Input.GetKey(KeyCode.W);
+        _up = Input.GetKey(KeyCode.Space);
         _right = Input.GetKey(KeyCode.D);
         _left = Input.GetKey(KeyCode.A);
 
@@ -81,6 +84,7 @@ public class monkey : MonoBehaviour
             {
                 // face in the direction the monkey is walking
                 transform.localScale = _scale;
+                transform.GetChild(0).localScale = _childscale;
                 // move to the right 
                 transform.position += Time.deltaTime * _speed * Vector3.right;
             }
@@ -88,6 +92,7 @@ public class monkey : MonoBehaviour
             {
                 // face in the direction the monkey is walking
                 transform.localScale = new Vector3(-1 * _scale.x, _scale.y, _scale.z);
+                transform.GetChild(0).localScale = new Vector3(-1 * _childscale.x, _childscale.y, _childscale.z);
                 // move to the left 
                 transform.position += Time.deltaTime * _speed * Vector3.left;
             }
@@ -95,7 +100,16 @@ public class monkey : MonoBehaviour
         else
         {
             // face in the direction the of the mouse if the monkey isn''t walking 
-            transform.localScale = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x < 0 ? new Vector3(-1 * _scale.x, _scale.y, _scale.z) : _scale;
+            if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x < 0)
+            {
+                transform.localScale = new Vector3(-1 * _scale.x, _scale.y, _scale.z);
+                transform.GetChild(0).localScale = new Vector3(-1 * _childscale.x, _childscale.y, _childscale.z);
+            }
+            else
+            {
+                transform.localScale = _scale;
+                transform.GetChild(0).localScale = _childscale;
+            }
         }
     }
 
@@ -109,53 +123,53 @@ public class monkey : MonoBehaviour
             if (_mousedown) //
             {
                 spriteRenderer.sprite = monkeythrow1;
-                transform.GetChild(0).localPosition = new Vector3(-0.64f,0.45f,0f);
-                transform.GetChild(0).localRotation = new Quaternion(0f,0f,1f,0f);
+                transform.GetChild(0).localPosition = new Vector3(-0.4f,0.2f,0f);
+                transform.GetChild(0).localRotation = new Quaternion(0f,0f,1f,-0.1f);
             }
             else if (currSprite == monkeythrow1)
             {
                 spriteRenderer.sprite = monkeythrow2;
-                transform.GetChild(0).localPosition = new Vector3(0.15f,0.5f,0f);
-                transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,1f);
+                transform.GetChild(0).localPosition = new Vector3(-2f,0.4f,0f);
+                transform.GetChild(0).localRotation = new Quaternion(0f,0f,0.9f,0.4f);
             }
             else if (monkeyRB.velocity.y > 0.01f)
             {
                 spriteRenderer.sprite = jumpstance;
-                transform.GetChild(0).localPosition = new Vector3(0.0499f,0.12f,0f);
-                transform.GetChild(0).localRotation = new Quaternion(0f,0f,0.4f,0.9f);
+                transform.GetChild(0).localPosition = new Vector3(0f,0.1f,0f);
+                transform.GetChild(0).localRotation = new Quaternion(0f,0f,1.0f,-0.1f);
             }
             else if (_right != _left & monkeyRB.velocity.y < 1f & monkeyRB.velocity.y > -1f)
             {
                 if (currSprite == walk1)
                 {
                     spriteRenderer.sprite = walk2;
-                    transform.GetChild(0).localPosition = new Vector3(0.35f,-0.24f,0f);
-                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,1f);
+                    transform.GetChild(0).localPosition = new Vector3(0.1f,0f,0f);
+                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0.4f,0.9f);
                 }
                 else if (currSprite == walk2)
                 {
                     spriteRenderer.sprite = walk3;
-                    transform.GetChild(0).localPosition = new Vector3(0.29f,-0.33f,0f);
-                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,01f);
+                    transform.GetChild(0).localPosition = new Vector3(0.1f,-0.1f,0f);
+                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,1f);
                 }
                 else if (currSprite == walk3)
                 {
                     spriteRenderer.sprite = walk4;
-                    transform.GetChild(0).localPosition = new Vector3(0.35f,-0.24f,0f);
-                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,1f);
+                    transform.GetChild(0).localPosition = new Vector3(0f,-0.2f,0f);
+                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0.2f,1f);
                 }
                 else
                 {
                     spriteRenderer.sprite = walk1;
-                    transform.GetChild(0).localPosition = new Vector3(0.29f,-0.33f,0f);
-                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,01f);
+                    transform.GetChild(0).localPosition = new Vector3(0.1f,-0.1f,0f);
+                    transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,1f);
                 } 
             }
             else
             {
                 spriteRenderer.sprite = standingsideways;
                 transform.GetChild(0).localPosition = new Vector3(0f,-0.27f,0f);
-                transform.GetChild(0).localRotation = new Quaternion(0f,0f,-0.9f,0.5f);
+                transform.GetChild(0).localRotation = new Quaternion(0f,0f,0f,0f);
 
             }
         }
@@ -167,17 +181,20 @@ public class monkey : MonoBehaviour
         viewPos.x = Mathf.Clamp(viewPos.x, _screenposition.x - _halfWidth + _objectWidth, _screenposition.x + _halfWidth - _objectWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, _screenposition.y - _halfHeight + _objectHeight, _screenposition.y + _halfHeight - _objectHeight);
         transform.position = viewPos;
-    } 
-    
+    }
+
+    // this might be helpful with fixing the jump.
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        
+    }
+
     //check what platform the monkey is on and set the monkeys jumping speed
     private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject GO = other.gameObject;
         switch (GO.tag) // which object has it collided with 
         {
-            case "Boomerang": // ignore this collision and implement no phyisics
-                Physics2D.IgnoreCollision(GO.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
-                break;
             case "mushroom": 
                 _jumpspeed = 200f;
                 _jumped = false;

@@ -98,7 +98,4 @@ public class MonkeyMenu : MonoBehaviour
             }
         }
     }
-    void Update ()
-    {
-    }
 }

@@ -16,6 +16,7 @@ public class Instructions : MonoBehaviour
     }
     private void StartGame()
     {
+        Boomerang.Restart();
         SceneManager.LoadScene(3);
     }
 }
