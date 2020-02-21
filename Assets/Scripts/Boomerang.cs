@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+
 
 public class Boomerang : MonoBehaviour
 {
-    private Rigidbody2D _boom_rb;
-    private bool _thrown; //has the boomerang been thrown yet?
+    private static Rigidbody2D _boom_rb;
+    public static bool _thrown; //has the boomerang been thrown yet?
     private float _maxdistance = 40f; // farthers distance it should travel
     public Transform _home; // where the boomerang returns too
     private bool _forward = true; // is it in a forward or backward motion
@@ -21,7 +16,7 @@ public class Boomerang : MonoBehaviour
     private float _power;
     private float _distancetogo;
     private bool _clicked;
-    public int boomerangsallowed;
+    private static bool gameover = false;
 
     private Vector3 scale;
     // Switching between boomerang vars
@@ -33,15 +28,20 @@ public class Boomerang : MonoBehaviour
     public GameObject Bouncy;
     public GameObject Quad;
    // end of vars 
+   
+   //private DebugHUD _hud;
+   //public Material DebugMaterial;
     private void Start()
     {
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _home = GameObject.Find("MonkeyHand").transform;
         scale = transform.localScale;
+        // _hud = new DebugHUD(DebugMaterial);
     }
     void Update()
     {
-        CurrentBoom();
+        if (gameover & !_thrown) return;
+            CurrentBoom();
         if (!_thrown)
         {
             if (EventSystem.current.IsPointerOverGameObject()) return;
@@ -64,6 +64,7 @@ public class Boomerang : MonoBehaviour
             _distancetogo =
                 (_power * _maxdistance > _maxdistance ? _maxdistance : _power * _maxdistance);
             _thrown = true;
+            BoomerangManager.boomerangsLeft -= 1;
             _distancereleased = transform.position;
             transform.rotation = Quaternion.Euler(0f, 0f, _lookAngle - 90f);
             _boom_rb.velocity = transform.up * 20f;
@@ -81,7 +82,6 @@ public class Boomerang : MonoBehaviour
             {
                 _thrown = false;
                 _forward = true;
-                BoomerangManager.boomerangsLeft -= 1;
             }
         }
     }
@@ -103,8 +103,7 @@ public class Boomerang : MonoBehaviour
    // Used to switch boomerang
     private void CurrentBoom()
     {
-        if (newboom == null) return;
-        if (currboom.name != newboom)
+        if(!_thrown & newboom != null & currboom.name != newboom) 
         {
             currboom.SetActive(false);
             switch (newboom)
@@ -144,4 +143,88 @@ public class Boomerang : MonoBehaviour
                 break;
         }
     }*/
+  public static void GameOver()
+  {
+      gameover = true;
+  }
+
+  public static void Restart()
+  {
+      gameover = false;
+      ScoreManager.Score = 0;
+      BoomerangManager.boomerangsLeft = 5;
+      _boom_rb.velocity = new Vector3(0f,0f,0f);
+      _thrown = false;
+  }
+  /*
+       internal void OnGUI()
+    {
+        var val = new Vector3(_lookdirection.x, _lookdirection.y, 0).normalized * 50f; // 50 pixel long vector in the direction of the mouse relative to the monkey
+        _hud.DrawMagnitude(_power);
+        //_hud.DrawMagnitude(_power);
+    }
+  /// <summary>
+      /// Helper class to draw lines, etc. on the screen
+      /// </summary>
+      private class DebugHUD
+      {
+          private static readonly Vector2 HUDCorner = new Vector2(20f, 200f);
+          private static readonly Vector3 ArrowStart = HUDCorner + new Vector2(50f, 50f);
+          public Transform _home;
+          private readonly Material _mat;
+  
+          public DebugHUD(Material mat)
+          {
+              _mat = mat;
+          }
+  
+          public void DrawArrow(Vector3 value, float _power, Transform mh)
+          {
+  
+              GL.PushMatrix();
+              _mat.SetPass(0);
+              GL.LoadPixelMatrix();
+  
+              GL.Begin(GL.LINES);
+              GL.Color(Color.red);
+  
+              Vector3 my_arrowstart = Vector3.Normalize(new Vector3(0, 0, 0));
+              ;
+              Vector3 value_vertex = Vector3.Normalize(value);
+  
+  
+              GL.Vertex(new Vector3(70f + (my_arrowstart.x * _power * 50f), 70f + (my_arrowstart.y * _power * 50f), 0f));
+  
+              Vector3 vel = new Vector3(70f + (value_vertex.x * _power * 50f), 70f + (value_vertex.y * _power * 50f), 0f);
+  
+              GL.Vertex(vel);
+              GL.End();
+  
+  
+              GL.Begin(GL.TRIANGLES);
+              GL.Color(Color.red);
+              Vector3 pnt = Vector3.Normalize(new Vector3(-(my_arrowstart.y - value_vertex.y),
+                  my_arrowstart.x - value_vertex.x, 0f));
+              Vector3 perp_pnt = Vector3.Normalize(new Vector3((my_arrowstart.x - value_vertex.x),
+                  my_arrowstart.y - value_vertex.y, 0f));
+              GL.Vertex(new Vector3(vel.x + (pnt.x * -5), vel.y + (pnt.y * -5), 0f));
+              GL.Vertex(new Vector3(vel.x + (pnt.x * 5), vel.y + (pnt.y * 5), 0f));
+              GL.Vertex(new Vector3(vel.x + (perp_pnt.x * -10), vel.y + (perp_pnt.y * -10), 0f));
+              GL.End();
+              GL.PopMatrix();
+          }
+          public void DrawMagnitude(float magnitude)
+          {
+              _mat.SetPass(0);
+              GL.LoadPixelMatrix();
+              GL.Begin(GL.QUADS);
+              GL.Color(Color.red);
+              GL.Vertex(new Vector3(25f, (10f + magnitude * 50f), 0f));
+              GL.Vertex(new Vector3(0f, (10f + magnitude * 50f), 0f));
+              GL.Vertex(new Vector3(0f, 0f, 0f));
+              GL.Vertex(new Vector3(25, 0f, 0f));
+              GL.End();
+  
+          }
+      }*/
 }

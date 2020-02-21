@@ -183,6 +183,7 @@ public class monkey : MonoBehaviour
         transform.position = viewPos;
     }
 
+    // this might be helpful with fixing the jump.
     private void OnCollisionStay2D(Collision2D other)
     {
         

@@ -28,10 +28,6 @@ public class buttonhelper : Selectable
             case "Quit":
                 Menu.QuitGame();
                 break;
-            case "Next":
-                x =  SceneManager.GetActiveScene().buildIndex + 1;
-                Menu.LoadLevel(x);
-                break;
             case "Menu":
                 Menu.LoadLevel(0);
                 break;
