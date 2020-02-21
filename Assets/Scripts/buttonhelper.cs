@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class buttonhelper : Selectable
@@ -12,6 +13,7 @@ public class buttonhelper : Selectable
     {
         visual.GetComponent<SpriteRenderer>().enabled = IsHighlighted() == true;
         if (!IsPressed()) return;
+        int x;
         switch (gameObject.name)
         {
             case "Start":
@@ -26,8 +28,15 @@ public class buttonhelper : Selectable
             case "Quit":
                 Menu.QuitGame();
                 break;
+            case "Next":
+                x =  SceneManager.GetActiveScene().buildIndex + 1;
+                Menu.LoadLevel(x);
+                break;
+            case "Menu":
+                Menu.LoadLevel(0);
+                break;
             default:
-                var x = Int32.Parse(gameObject.name) + 2;
+                x = Int32.Parse(gameObject.name) + 2;
                 Menu.LoadLevel(x);
                 break;
         }
