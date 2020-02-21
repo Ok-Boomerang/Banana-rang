@@ -15,6 +15,7 @@ public class Menu : MonoBehaviour
             Vector2 hotSpot = new Vector2(xspot,yspot);
             Cursor.SetCursor(cursor, hotSpot, CursorMode.Auto);
      }
+     
      public static void QuitGame () {
 #if UNITY_EDITOR
          EditorApplication.isPlaying = false;
