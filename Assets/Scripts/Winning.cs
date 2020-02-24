@@ -27,7 +27,7 @@ public class Winning : MonoBehaviour
     {
         gameOverPanel.SetActive(true);
         Levelend.gameOverText.text = overText;
-        Boomerang.GameOver();
+        Boomerang.GameOver(); 
     }
 
     // Update is called once per frame
