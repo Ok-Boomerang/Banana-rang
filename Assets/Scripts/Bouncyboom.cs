@@ -30,4 +30,20 @@ public class Bouncyboom : MonoBehaviour
     {//change
         boomer.GetComponent<Rigidbody2D>().velocity = boomer.GetComponent<Rigidbody2D>().velocity * -1;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject GO = other.gameObject;
+        switch (GO.tag) // which object has it collided with 
+        {
+            case "Platform":
+                Debug.Log("Platform object");
+                boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang._thrown = false;
+                break;
+            case "Greenery":
+                //Debug.Log("Greenery object");
+                break;
+        }
+    }
 }

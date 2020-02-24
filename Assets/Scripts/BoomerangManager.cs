@@ -5,8 +5,12 @@ using UnityEngine.UI;
 
 public class BoomerangManager : MonoBehaviour
 {
-    public static int boomerangsLeft = 5;
+    public static int boomerangsLeft;
 
+    void Start()
+    {
+        boomerangsLeft = Winning._startBooms;
+    }
     // Update is called once per frame
     void Update()
     {
