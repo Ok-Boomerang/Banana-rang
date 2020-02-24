@@ -28,6 +28,24 @@ public class BIboom : MonoBehaviour
 
     public static void returnboom()
     { //change 
-        boomer.GetComponent<Rigidbody2D>().velocity = boomer.GetComponent<Rigidbody2D>().velocity * -1;
+        Vector2 change = new Vector2(boomer.GetComponent<Rigidbody2D>().velocity.x * -1,
+            boomer.GetComponent<Rigidbody2D>().velocity.y* 0.5f);
+        boomer.GetComponent<Rigidbody2D>().velocity = change;
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        GameObject GO = other.gameObject;
+        switch (GO.tag) // which object has it collided with 
+        {
+            case "Platform":
+                Debug.Log("Platform object");
+                boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang._thrown = false;
+                break;
+            case "Greenery":
+                //Debug.Log("Greenery object");
+                break;
+        }
+    }
+
 }

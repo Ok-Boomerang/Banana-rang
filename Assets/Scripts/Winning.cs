@@ -10,14 +10,17 @@ public class Winning : MonoBehaviour
 {
     public int _maxScore = 8;
     public int _par = 3;
-    public static int _startBooms;
     public GameObject gameOverPanel;
     public string overText = "Good Try";
-    public int numofbooms = 5;
+    public int numofbooms;
+    public static int _startBooms;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _startBooms = numofbooms;
+    }
+    void Start()
+    { 
         gameOverPanel.SetActive(false);
     }
     void GameOver()

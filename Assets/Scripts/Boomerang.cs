@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 
@@ -8,6 +9,7 @@ public class Boomerang : MonoBehaviour
     public static bool _thrown; //has the boomerang been thrown yet?
     public static float _maxdistance = 40f; // farthers distance it should travel
     public Transform _home; // where the boomerang returns too
+    public Transform arrow;
     private bool _forward = true; // is it in a forward or backward motion
     private Vector3 _distancereleased; // the distance it has traveled so far
     private Vector2 _lookdirection;
@@ -19,6 +21,7 @@ public class Boomerang : MonoBehaviour
     private static bool gameover = false;
 
     private Vector3 scale;
+    private Vector3 arrowScale;
     // Switching between boomerang vars
     public GameObject currboom;
     public static string newboom;
@@ -31,15 +34,17 @@ public class Boomerang : MonoBehaviour
    
    //private DebugHUD _hud;
    //public Material DebugMaterial;
-    private void Start()
+   private void Start()
     {
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _home = GameObject.Find("MonkeyHand").transform;
         scale = transform.localScale;
+        arrowScale = arrow.localScale;
         // _hud = new DebugHUD(DebugMaterial);
     }
     void Update()
     {
+
         if (gameover & !_thrown) return;
             CurrentBoom();
         if (!_thrown)
@@ -47,6 +52,7 @@ public class Boomerang : MonoBehaviour
             if (EventSystem.current.IsPointerOverGameObject()) return;
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
+            arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
             if (Input.GetMouseButtonDown(0))
             {
                 _clicked = true;
@@ -56,7 +62,18 @@ public class Boomerang : MonoBehaviour
 
             if (Input.GetMouseButton(0))
             {
-                _power = 2f * (Time.time - _clickStart);
+                var powerholder = 2f * (Time.time - _clickStart);
+                if (Math.Truncate(powerholder) % 2 == 0)
+                {
+                    _power = (float) (powerholder - Math.Truncate(powerholder));
+                }
+                else
+                {
+                    _power = 1 - (float) (powerholder - Math.Truncate(powerholder));
+                }
+                Vector3 aScale = arrow.localScale;
+                aScale.y = (_power + 1) * arrowScale.y * 1.5f;
+                arrow.localScale = aScale;
             }
 
             if (!(Input.GetMouseButtonUp(0) & _clicked)) return;
@@ -118,11 +135,13 @@ public class Boomerang : MonoBehaviour
                     Quadboom.returnboom();
                 }
             }
-            else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f)
+            else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f || 
+                     !_forward & Mathf.Abs((Camera.main.transform.position.x - (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <= 0.5f)
             {
                 _thrown = false;
                 _forward = true;
                 _boom_rb.velocity = new Vector3(0f,0f,0f);
+                arrow.localScale = arrowScale;
             }
         }
     }
@@ -171,19 +190,22 @@ public class Boomerang : MonoBehaviour
     }
 
     
-  /*  private void OnCollisionEnter2D(Collision2D other)
+    /*private void OnCollisionEnter2D(Collision2D other)
     {
         GameObject GO = other.gameObject;
         switch (GO.tag) // which object has it collided with 
         {
             case "Platform":
                 Debug.Log("Platform object");
+                _boom_rb.velocity = new Vector3(0f, 0f, 0f);
+                _thrown = false;
                 break;
             case "Greenery":
                 //Debug.Log("Greenery object");
                 break;
         }
     }*/
+
   public static void GameOver()
   {
       gameover = true;
