@@ -14,10 +14,13 @@ public class Winning : MonoBehaviour
     public string overText = "Good Try";
     public int numofbooms;
     public static int _startBooms;
+    public Transform canvas;
     // Start is called before the first frame update
     void Awake()
     {
         _startBooms = numofbooms;
+        Button restartbtn = canvas.Find("reset").GetComponent<Button>();
+        restartbtn.onClick.AddListener(Restart);
     }
     void Start()
     { 
@@ -64,5 +67,11 @@ public class Winning : MonoBehaviour
             }
             GameOver();
         }
+    }
+
+    void Restart()
+    {
+        Boomerang.Restart();
+        Menu.LoadLevel(SceneManager.GetActiveScene().buildIndex);
     }
 }
