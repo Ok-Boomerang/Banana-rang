@@ -52,6 +52,7 @@ public class Boomerang : MonoBehaviour
             if (EventSystem.current.IsPointerOverGameObject()) return;
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
+            arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
             if (Input.GetMouseButtonDown(0))
             {
                 _clicked = true;
