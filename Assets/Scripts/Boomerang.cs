@@ -34,7 +34,7 @@ public class Boomerang : MonoBehaviour
    
    //private DebugHUD _hud;
    //public Material DebugMaterial;
-    private void Start()
+   private void Start()
     {
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _home = GameObject.Find("MonkeyHand").transform;
@@ -70,11 +70,9 @@ public class Boomerang : MonoBehaviour
                 {
                     _power = 1 - (float) (powerholder - Math.Truncate(powerholder));
                 }
-
                 Vector3 aScale = arrow.localScale;
                 aScale.y = (_power + 1) * arrowScale.y * 1.5f;
                 arrow.localScale = aScale;
-
             }
 
             if (!(Input.GetMouseButtonUp(0) & _clicked)) return;
