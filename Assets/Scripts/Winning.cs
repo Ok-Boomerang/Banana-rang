@@ -9,17 +9,19 @@ using UnityEngine.SceneManagement;
 public class Winning : MonoBehaviour
 {
     public int _maxScore = 8;
-    public int _par = 3;
+    public int _par;
     public GameObject gameOverPanel;
     public string overText = "Good Try";
     public int numofbooms;
     public static int _startBooms;
+    public static int globalPar;
     public Transform canvas;
     public Button restartbtn;
     // Start is called before the first frame update
     void Awake()
     {
         _startBooms = numofbooms;
+        globalPar = _par;
         restartbtn = canvas.Find("reset").GetComponent<Button>();
     }
     void Start()
@@ -45,25 +47,11 @@ public class Winning : MonoBehaviour
             if (ScoreManager.Score == _maxScore)
             {
                 var numBooms = BoomerangManager.boomerangsLeft;
-                switch (numBooms)
-                {
-                    case 2:
-                        overText = "On Par!";
-                        break;
-                    case 1:
-                        overText = "Bogey";
-                        break;
-                    case 0:
-                        overText = "Double Bogey";
-                        break;
-                    case 3:
-                        overText = "Birdie";
-                        break;
-                    case 4:
-                        overText = "Eagle";
-                        break;
-
-                }
+                if (numBooms <= _startBooms - globalPar - 2) { overText = "Double Bogey"; }
+                else if (numBooms == _startBooms - globalPar - 1) { overText = "Bogey"; }
+                else if (numBooms == _startBooms - globalPar) { overText = "On Par!"; }
+                else if (numBooms == _startBooms - globalPar + 1) { overText = "Birdie"; }
+                else if (numBooms >= _startBooms - globalPar + 2) { overText = "Eagle"; }
             }
             else
             {

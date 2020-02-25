@@ -148,7 +148,6 @@ public class Boomerang : MonoBehaviour
             else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f || 
                      !_forward & Mathf.Abs((Camera.main.transform.position.x - (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <= 0.5f)
             {
-                Debug.Log("here");
                 _thrown = false;
                 _forward = true;
                 _boom_rb.velocity = new Vector3(0f,0f,0f);
@@ -226,7 +225,7 @@ public class Boomerang : MonoBehaviour
   {
       gameover = false;
       ScoreManager.Score = 0;
-      BoomerangManager.boomerangsLeft = 5;
+      BoomerangManager.boomerangsLeft = Winning._startBooms;
       _boom_rb.velocity = new Vector3(0f,0f,0f);
       _thrown = false;
   }
