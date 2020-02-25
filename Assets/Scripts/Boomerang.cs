@@ -10,6 +10,7 @@ public class Boomerang : MonoBehaviour
     public static float _maxdistance = 40f; // farthers distance it should travel
     public Transform _home; // where the boomerang returns too
     public Transform arrow;
+    public Transform maxArrow;
     private bool _forward = true; // is it in a forward or backward motion
     private Vector3 _distancereleased; // the distance it has traveled so far
     private Vector2 _lookdirection;
@@ -22,6 +23,7 @@ public class Boomerang : MonoBehaviour
 
     private Vector3 scale;
     private Vector3 arrowScale;
+    private Vector3 maxScale;
     // Switching between boomerang vars
     public GameObject currboom;
     public static string newboom;
@@ -40,6 +42,7 @@ public class Boomerang : MonoBehaviour
         _home = GameObject.Find("MonkeyHand").transform;
         scale = transform.localScale;
         arrowScale = arrow.localScale;
+        maxScale = maxArrow.localScale;
         // _hud = new DebugHUD(DebugMaterial);
     }
     void Update()
@@ -53,11 +56,16 @@ public class Boomerang : MonoBehaviour
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
             arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
+            maxArrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
             if (Input.GetMouseButtonDown(0))
             {
                 _clicked = true;
                 _clickStart = Time.time;
                 GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = true;
+                Vector3 mScale = maxArrow.localScale;
+                mScale.y = .45f;
+                mScale.x = .17f;
+                maxArrow.localScale = mScale;
             }
 
             if (Input.GetMouseButton(0))
@@ -142,6 +150,7 @@ public class Boomerang : MonoBehaviour
                 _forward = true;
                 _boom_rb.velocity = new Vector3(0f,0f,0f);
                 arrow.localScale = arrowScale;
+                maxArrow.localScale = maxScale;
             }
         }
     }
