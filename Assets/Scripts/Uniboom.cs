@@ -35,6 +35,7 @@ public class Uniboom : MonoBehaviour
                 Debug.Log("Platform object");
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
+                Boomerang.globalArrow.localScale = new Vector3(0f,0f,0f);
                 break;
             case "Greenery":
                 //Debug.Log("Greenery object");

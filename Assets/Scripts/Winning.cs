@@ -15,22 +15,26 @@ public class Winning : MonoBehaviour
     public int numofbooms;
     public static int _startBooms;
     public Transform canvas;
+    public Button restartbtn;
     // Start is called before the first frame update
     void Awake()
     {
         _startBooms = numofbooms;
-        Button restartbtn = canvas.Find("reset").GetComponent<Button>();
-        restartbtn.onClick.AddListener(Restart);
+        restartbtn = canvas.Find("reset").GetComponent<Button>();
     }
     void Start()
     { 
         gameOverPanel.SetActive(false);
+        restartbtn.gameObject.SetActive(true); 
+        restartbtn.onClick.AddListener(Restart);
     }
     void GameOver()
     {
         gameOverPanel.SetActive(true);
+        restartbtn.gameObject.SetActive(false);
         Levelend.gameOverText.text = overText;
         Boomerang.GameOver(); 
+
     }
 
     // Update is called once per frame

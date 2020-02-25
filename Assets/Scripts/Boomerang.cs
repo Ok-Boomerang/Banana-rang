@@ -10,6 +10,7 @@ public class Boomerang : MonoBehaviour
     public static float _maxdistance = 40f; // farthers distance it should travel
     public Transform _home; // where the boomerang returns too
     public Transform arrow;
+    public static Transform globalArrow;
     public Transform maxArrow;
     private bool _forward = true; // is it in a forward or backward motion
     private Vector3 _distancereleased; // the distance it has traveled so far
@@ -36,12 +37,16 @@ public class Boomerang : MonoBehaviour
    
    //private DebugHUD _hud;
    //public Material DebugMaterial;
+   private void Awake()
+    {
+        globalArrow = arrow;
+    }
    private void Start()
     {
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _home = GameObject.Find("MonkeyHand").transform;
         scale = transform.localScale;
-        arrowScale = arrow.localScale;
+        arrowScale = new Vector3(.17f, .15f, 0f);
         maxScale = maxArrow.localScale;
         // _hud = new DebugHUD(DebugMaterial);
     }
@@ -55,17 +60,12 @@ public class Boomerang : MonoBehaviour
             if (EventSystem.current.IsPointerOverGameObject()) return;
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
-            arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
             maxArrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
             if (Input.GetMouseButtonDown(0))
             {
                 _clicked = true;
                 _clickStart = Time.time;
                 GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = true;
-                Vector3 mScale = maxArrow.localScale;
-                mScale.y = .45f;
-                mScale.x = .17f;
-                maxArrow.localScale = mScale;
             }
 
             if (Input.GetMouseButton(0))
@@ -79,8 +79,10 @@ public class Boomerang : MonoBehaviour
                 {
                     _power = 1 - (float) (powerholder - Math.Truncate(powerholder));
                 }
+                arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
                 Vector3 aScale = arrow.localScale;
                 aScale.y = (_power + 1) * arrowScale.y * 1.5f;
+                aScale.x = arrowScale.x;
                 arrow.localScale = aScale;
             }
 
@@ -146,11 +148,11 @@ public class Boomerang : MonoBehaviour
             else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f || 
                      !_forward & Mathf.Abs((Camera.main.transform.position.x - (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <= 0.5f)
             {
+                Debug.Log("here");
                 _thrown = false;
                 _forward = true;
                 _boom_rb.velocity = new Vector3(0f,0f,0f);
-                arrow.localScale = arrowScale;
-                maxArrow.localScale = maxScale;
+                arrow.localScale = new Vector3(0f,0f,0f);
             }
         }
     }
