@@ -7208,7 +7208,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x5
+  m_Text: x4
 --- !u!222 &834828025
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20557,6 +20557,7 @@ GameObject:
   - component: {fileID: 1815829872}
   - component: {fileID: 1815829874}
   - component: {fileID: 1815829873}
+  - component: {fileID: 1815829875}
   m_Layer: 5
   m_Name: Par
   m_TagString: Untagged
@@ -20614,7 +20615,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Par: 3'
+  m_Text: 'Par: 2'
 --- !u!222 &1815829874
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -20623,6 +20624,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1815829871}
   m_CullTransparentMesh: 0
+--- !u!114 &1815829875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815829871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06270e6f0915d024aa60d8e3ec3890c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1861364775
 GameObject:
   m_ObjectHideFlags: 0
@@ -25821,11 +25834,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxScore: 8
-  _par: 3
+  _par: 2
   gameOverPanel: {fileID: 140775975}
   overText: '"Good Try"'
-  numofbooms: 5
+  numofbooms: 4
   canvas: {fileID: 1950520194}
+  restartbtn: {fileID: 1108195065}
 --- !u!1 &2015526616
 GameObject:
   m_ObjectHideFlags: 0
