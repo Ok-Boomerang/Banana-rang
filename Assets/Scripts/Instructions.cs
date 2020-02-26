@@ -13,10 +13,17 @@ public class Instructions : MonoBehaviour
 
         var startbtn = transform.Find("Start").GetComponent<Button>();
         startbtn.onClick.AddListener(StartGame);
+        var menubtn = transform.Find("menu").GetComponent<Button>();
+        menubtn.onClick.AddListener(toMenu);
     }
     private void StartGame()
     {
         Boomerang.Restart();
         SceneManager.LoadScene(3);
+    }
+
+    void toMenu()
+    {
+        Menu.LoadLevel(0);
     }
 }
