@@ -46,7 +46,7 @@ public class Boomerang : MonoBehaviour
         _boom_rb = gameObject.GetComponent<Rigidbody2D>();
         _home = GameObject.Find("MonkeyHand").transform;
         scale = transform.localScale;
-        arrowScale = new Vector3(.17f, .15f, 0f);
+        arrowScale = new Vector3(.17f, .2f, 0f);
         maxScale = maxArrow.localScale;
         // _hud = new DebugHUD(DebugMaterial);
     }
@@ -81,7 +81,7 @@ public class Boomerang : MonoBehaviour
                 }
                 arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
                 Vector3 aScale = arrow.localScale;
-                aScale.y = (_power + 1) * arrowScale.y * 1.5f;
+                aScale.y = _power * arrowScale.y * 1.5f;
                 aScale.x = arrowScale.x;
                 arrow.localScale = aScale;
             }
