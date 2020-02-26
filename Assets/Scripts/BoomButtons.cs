@@ -27,23 +27,23 @@ public class BoomButtons : MonoBehaviour
 
     private void UniBoom()
     { 
-        redirect("Uni");
+        if (UniManager.uniLeft > 0) redirect("Uni");
     }
     private void BiBoom()
-    { 
-        redirect("Bi");
+    {
+        if (BiManager.biLeft > 0) redirect("Bi");
     }
     private void BladeBoom()
-    { 
-        redirect("Blade");
+    {
+        if (BladeManager.bladeLeft > 0) redirect("Blade");
     }
     private void BouncyBoom()
-    { 
-        redirect("Bouncy");
+    {
+        if (BounceManager.bounceLeft > 0) redirect("Bouncy");
     }
     private void QuadBoom()
-    { 
-        redirect("Quad");
+    {
+        if (QuadManager.quadLeft > 0) redirect("Quad");
     }
 
     private void redirect(string typee)
