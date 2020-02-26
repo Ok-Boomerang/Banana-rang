@@ -27,6 +27,7 @@ public class Winning : MonoBehaviour
     public static int startQuad;
     public Transform canvas;
     public Button restartbtn;
+    public Button menubtn;
     // Start is called before the first frame update
     void Awake()
     {
@@ -39,12 +40,14 @@ public class Winning : MonoBehaviour
         boomerangsLeft = _startBooms;
         globalPar = _par;
         restartbtn = canvas.Find("reset").GetComponent<Button>();
+        menubtn = canvas.Find("menu").GetComponent<Button>();
     }
     void Start()
     { 
         gameOverPanel.SetActive(false);
         restartbtn.gameObject.SetActive(true); 
         restartbtn.onClick.AddListener(Restart);
+        menubtn.onClick.AddListener(toMenu);
     }
     void GameOver()
     {
@@ -52,7 +55,6 @@ public class Winning : MonoBehaviour
         restartbtn.gameObject.SetActive(false);
         Levelend.gameOverText.text = overText;
         Boomerang.GameOver(); 
-
     }
 
     // Update is called once per frame
@@ -80,5 +82,10 @@ public class Winning : MonoBehaviour
     {
         Boomerang.Restart();
         Menu.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void toMenu()
+    {
+        Menu.LoadLevel(0);
     }
 }
