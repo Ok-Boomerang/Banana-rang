@@ -90,30 +90,31 @@ public class Boomerang : MonoBehaviour
             _clicked = false;
             _distancereleased = transform.position;
             _thrown = true;
-            BoomerangManager.boomerangsLeft -= 1;
+            Winning.boomerangsLeft -= 1;
             GameObject.Find("Monkey").GetComponent<monkey>()._mousedown = false;
             if (currboom == Uni)
             {
+                UniManager.uniLeft -= 1;
                 Uniboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Bi)
             {
-                Debug.Log("Fix Biboom script");
+                BiManager.biLeft -= 1;
                 BIboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Blade)
             {
-                Debug.Log("Fix Bladeboom script");
+                BladeManager.bladeLeft -= 1;
                 Bladeboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Bouncy)
             {
-                Debug.Log("Fix Bouncyboom script");
+                BounceManager.bounceLeft -= 1;
                 Bouncyboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Quad)
             {
-                Debug.Log("Fix Quadboom script");
+                QuadManager.quadLeft -= 1;
                 Quadboom.throwboomerang( _lookAngle, _power);
             }
         }
@@ -225,7 +226,7 @@ public class Boomerang : MonoBehaviour
   {
       gameover = false;
       ScoreManager.Score = 0;
-      BoomerangManager.boomerangsLeft = Winning._startBooms;
+      Winning.boomerangsLeft = Winning._startBooms;
       _boom_rb.velocity = new Vector3(0f,0f,0f);
       _thrown = false;
   }
