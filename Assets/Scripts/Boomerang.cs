@@ -12,7 +12,7 @@ public class Boomerang : MonoBehaviour
     public Transform arrow;
     public static Transform globalArrow;
     public Transform maxArrow;
-    private bool _forward = true; // is it in a forward or backward motion
+    public static bool _forward = true; // is it in a forward or backward motion
     private Vector3 _distancereleased; // the distance it has traveled so far
     private Vector2 _lookdirection;
     private float _lookAngle;
@@ -161,7 +161,9 @@ public class Boomerang : MonoBehaviour
     private void LateUpdate()
     {
         if (!_thrown) 
-        { SetInHand(); }
+        {
+            SetInHand(); 
+        }
     }
 
     private void SetInHand()
