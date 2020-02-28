@@ -39,13 +39,14 @@ public class Bladeboom : MonoBehaviour
             case "Platform":
                 Debug.Log("Platform object");
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
                 break;
             case "Greenery":
-                Destroy(other.gameObject);
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
+                Debug.Log("vine");
                 break;
         }
     }
