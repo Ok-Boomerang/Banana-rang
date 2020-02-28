@@ -42,7 +42,10 @@ public class Bladeboom : MonoBehaviour
                 Boomerang._thrown = false;
                 break;
             case "Greenery":
-                //Debug.Log("Greenery object");
+                Destroy(other.gameObject);
+                boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
+                Boomerang._thrown = false;
                 break;
         }
     }
