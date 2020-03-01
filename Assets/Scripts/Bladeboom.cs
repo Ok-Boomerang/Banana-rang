@@ -48,6 +48,11 @@ public class Bladeboom : MonoBehaviour
                 Boomerang._thrown = false;
                 Debug.Log("vine");
                 break;
+            case "Water":
+                boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang._thrown = false;
+                Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
+                break;
         }
     }
 
