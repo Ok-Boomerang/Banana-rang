@@ -21331,8 +21331,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -53.200012, y: -24.099976}
-  m_SizeDelta: {x: 181.36, y: 74.46}
+  m_AnchoredPosition: {x: -46, y: -24}
+  m_SizeDelta: {x: 150, y: 74.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1815829873
 MonoBehaviour:
@@ -21637,7 +21637,7 @@ GameObject:
   - component: {fileID: 1897768143}
   - component: {fileID: 1897768145}
   m_Layer: 5
-  m_Name: Score
+  m_Name: Thrown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21659,8 +21659,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -71.94, y: -70.02}
-  m_SizeDelta: {x: 239.8, y: 75.07}
+  m_AnchoredPosition: {x: -79, y: -69}
+  m_SizeDelta: {x: 260, y: 75.07}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897768143
 MonoBehaviour:
@@ -21693,7 +21693,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Score: 0'
+  m_Text: 'Thrown: 0'
 --- !u!222 &1897768144
 CanvasRenderer:
   m_ObjectHideFlags: 0
