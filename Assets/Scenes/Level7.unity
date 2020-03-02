@@ -8585,11 +8585,11 @@ MonoBehaviour:
   Blade: {fileID: 1191824639}
   Bouncy: {fileID: 326209046}
   Quad: {fileID: 733937339}
-  Uninum: 2
-  Binum: 1
-  Bladenum: 1
-  Bouncenum: 1
-  Quadnum: 1
+  Uninum: 3
+  Binum: 3
+  Bladenum: 0
+  Bouncenum: 0
+  Quadnum: 0
 --- !u!50 &870924135
 Rigidbody2D:
   serializedVersion: 4
@@ -21974,11 +21974,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxScore: 9
   _par: 4
-  uniBooms: 2
-  biBooms: 1
-  bladeBooms: 1
-  bounceBooms: 1
-  quadBooms: 1
+  uniBooms: 3
+  biBooms: 3
+  bladeBooms: 0
+  bounceBooms: 0
+  quadBooms: 0
   gameOverPanel: {fileID: 140775975}
   overText: '"Good Try"'
   canvas: {fileID: 1950520194}

@@ -3412,7 +3412,7 @@ MonoBehaviour:
   Binum: 0
   Bladenum: 0
   Bouncenum: 0
-  Quadnum: 4
+  Quadnum: 3
 --- !u!50 &870924135
 Rigidbody2D:
   serializedVersion: 4
@@ -16562,7 +16562,7 @@ MonoBehaviour:
   biBooms: 0
   bladeBooms: 0
   bounceBooms: 0
-  quadBooms: 4
+  quadBooms: 3
   gameOverPanel: {fileID: 140775975}
   overText: '"Good Try"'
   canvas: {fileID: 1950520194}
