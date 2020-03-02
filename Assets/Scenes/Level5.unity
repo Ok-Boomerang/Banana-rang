@@ -8585,6 +8585,11 @@ MonoBehaviour:
   Blade: {fileID: 1191824639}
   Bouncy: {fileID: 326209046}
   Quad: {fileID: 733937339}
+  Uninum: 2
+  Binum: 1
+  Bladenum: 1
+  Bouncenum: 1
+  Quadnum: 1
 --- !u!50 &870924135
 Rigidbody2D:
   serializedVersion: 4
