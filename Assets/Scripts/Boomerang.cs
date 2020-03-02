@@ -33,6 +33,11 @@ public class Boomerang : MonoBehaviour
     public GameObject Blade;
     public GameObject Bouncy;
     public GameObject Quad;
+    public int Uninum;
+    public int Binum;
+    public int Bladenum;
+    public int Bouncenum;
+    public int Quadnum;
    // end of vars 
    
    //private DebugHUD _hud;
@@ -40,6 +45,25 @@ public class Boomerang : MonoBehaviour
    private void Awake()
     {
         globalArrow = arrow;
+        switch(currboom.name)
+        {
+            case("Uni"):
+                currboomsleft = Uninum;
+                break;
+            case("Bi"):
+                currboomsleft = Binum;
+                break;
+            case("Blade"):
+                currboomsleft = Bladenum;
+                break;
+            case("Bouncy"):
+                currboomsleft = Bouncenum;
+                break;
+            case("Quad"):
+                currboomsleft = Quadnum;
+                break;
+        }
+        Debug.Log(currboomsleft);
     }
    private void Start()
     {
@@ -239,8 +263,10 @@ public class Boomerang : MonoBehaviour
   {
       gameover = false;
       ScoreManager.Score = 0;
+      ScoreManager.Thrown = 0;
       Winning.boomerangsLeft = Winning._startBooms;
       _boom_rb.velocity = new Vector3(0f,0f,0f);
       _thrown = false;
+
   }
 }

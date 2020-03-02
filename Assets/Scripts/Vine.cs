@@ -15,12 +15,14 @@ public class Vine : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("here");
         if (!other.gameObject.CompareTag("Boomerang")) return;
-        var emissionModule = particle.GetComponent<ParticleSystem>().emission;
-        emissionModule.enabled = true;
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        StartCoroutine(StopParticle());
+        if (other.gameObject.name == "Blade")
+        {
+            var emissionModule = particle.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(StopParticle());
+        }
 
     }
 
