@@ -21,7 +21,6 @@ public class Boomerang : MonoBehaviour
     public static float _distancetogo;
     private bool _clicked;
     private static bool gameover = false;
-
     private Vector3 scale;
     private Vector3 arrowScale;
     private Vector3 maxScale;
@@ -98,30 +97,35 @@ public class Boomerang : MonoBehaviour
             {
                 UniManager.uniLeft -= 1;
                 currboomsleft -= 1;
+                ScoreManager.Thrown += 1;
                 Uniboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Bi)
             {
                 BiManager.biLeft -= 1;
                 currboomsleft -= 1;
+                ScoreManager.Thrown += 1;
                 BIboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Blade)
             {
                 BladeManager.bladeLeft -= 1;
                 currboomsleft -= 1;
+                ScoreManager.Thrown += 1;
                 Bladeboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Bouncy)
             {
                 BounceManager.bounceLeft -= 1;
                 currboomsleft -= 1;
+                ScoreManager.Thrown += 1;
                 Bouncyboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Quad)
             {
                 QuadManager.quadLeft -= 1;
                 currboomsleft -= 1;
+                ScoreManager.Thrown += 1;
                 Quadboom.throwboomerang( _lookAngle, _power);
             }
         }
