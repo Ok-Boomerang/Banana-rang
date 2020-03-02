@@ -28,6 +28,7 @@ public class Boomerang : MonoBehaviour
     // Switching between boomerang vars
     public GameObject currboom;
     public static string newboom;
+    public static int currboomsleft;
     public GameObject Uni;
     public GameObject Bi;
     public GameObject Blade;
@@ -55,8 +56,9 @@ public class Boomerang : MonoBehaviour
 
         if (gameover & !_thrown) return;
             CurrentBoom();
-        if (!_thrown)
+        if (!_thrown & currboomsleft > 0)
         {
+            Debug.Log(currboomsleft);
             if (EventSystem.current.IsPointerOverGameObject()) return;
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
@@ -95,26 +97,31 @@ public class Boomerang : MonoBehaviour
             if (currboom == Uni)
             {
                 UniManager.uniLeft -= 1;
+                currboomsleft -= 1;
                 Uniboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Bi)
             {
                 BiManager.biLeft -= 1;
+                currboomsleft -= 1;
                 BIboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Blade)
             {
                 BladeManager.bladeLeft -= 1;
+                currboomsleft -= 1;
                 Bladeboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Bouncy)
             {
                 BounceManager.bounceLeft -= 1;
+                currboomsleft -= 1;
                 Bouncyboom.throwboomerang( _lookAngle, _power);
             }
             else if (currboom == Quad)
             {
                 QuadManager.quadLeft -= 1;
+                currboomsleft -= 1;
                 Quadboom.throwboomerang( _lookAngle, _power);
             }
         }
