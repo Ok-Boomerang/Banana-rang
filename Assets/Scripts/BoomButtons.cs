@@ -49,6 +49,24 @@ public class BoomButtons : MonoBehaviour
     private void redirect(string typee)
     {
         Boomerang.newboom = typee;
+        switch (typee)
+        {
+            case("Uni"):
+                Boomerang.currboomsleft = UniManager.uniLeft;
+                break;
+            case("Bi"):
+                Boomerang.currboomsleft = BiManager.biLeft;
+                break;
+            case("Blade"):
+                Boomerang.currboomsleft = BladeManager.bladeLeft;
+                break;
+            case("Bouncy"):
+                Boomerang.currboomsleft = BounceManager.bounceLeft;
+                break;
+            case("Quad"):
+                Boomerang.currboomsleft = QuadManager.quadLeft;
+                break;
+        }
     }
     
 }
