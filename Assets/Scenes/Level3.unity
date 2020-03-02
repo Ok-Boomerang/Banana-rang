@@ -7551,13 +7551,13 @@ MonoBehaviour:
   _home: {fileID: 1341770807}
   arrow: {fileID: 604622481}
   maxArrow: {fileID: 54723816}
-  currboom: {fileID: 2057397711}
+  currboom: {fileID: 1416551640}
   Uni: {fileID: 2057397711}
   Bi: {fileID: 1416551640}
   Blade: {fileID: 1191824639}
   Bouncy: {fileID: 326209046}
   Quad: {fileID: 733937339}
-  Uninum: 1
+  Uninum: 0
   Binum: 5
   Bladenum: 0
   Bouncenum: 0
@@ -9858,7 +9858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1416551641
 Transform:
   m_ObjectHideFlags: 0
@@ -16340,7 +16340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxScore: 6
   _par: 3
-  uniBooms: 1
+  uniBooms: 0
   biBooms: 5
   bladeBooms: 0
   bounceBooms: 0
@@ -16442,7 +16442,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2057397712
 SpriteRenderer:
   m_ObjectHideFlags: 0
