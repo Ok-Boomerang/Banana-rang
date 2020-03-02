@@ -54,6 +54,10 @@ public class BIboom : MonoBehaviour
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
+                if (rets)
+                {
+                    Boomerang._forward = true;
+                }
                 break;
             case "Water":
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
