@@ -14,7 +14,7 @@ public class ParManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "par: " + par;
+        GetComponent<Text>().text = par.ToString();
 
     }
 }

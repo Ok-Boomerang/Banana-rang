@@ -39,8 +39,6 @@ public class Winning : MonoBehaviour
         _startBooms = uniBooms + biBooms + bladeBooms + bounceBooms + quadBooms;
         boomerangsLeft = _startBooms;
         globalPar = _par;
-        restartbtn = canvas.Find("reset").GetComponent<Button>();
-        menubtn = canvas.Find("menu").GetComponent<Button>();
     }
     void Start()
     { 
