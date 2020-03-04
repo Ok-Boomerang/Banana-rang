@@ -10155,6 +10155,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273430856}
   m_CullTransparentMesh: 0
+--- !u!1 &1296688586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296688587}
+  - component: {fileID: 1296688589}
+  - component: {fileID: 1296688588}
+  m_Layer: 1
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1296688587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296688586}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.007926, y: 1.007926, z: 1.007926}
+  m_Children: []
+  m_Father: {fileID: 1950520194}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -179.26422, y: 97.64055}
+  m_SizeDelta: {x: 413, y: 139.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1296688588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296688586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.4509804, b: 0.16862746, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_FontSize: 15
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '
+
+
+    See what happens if you jump
+
+    on the mushroom repeatedly!'
+--- !u!222 &1296688589
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296688586}
+  m_CullTransparentMesh: 0
 --- !u!1 &1312650063
 GameObject:
   m_ObjectHideFlags: 0
@@ -15763,7 +15845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511241010}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17, y: -5.8, z: 0}
+  m_LocalPosition: {x: -17, y: -6.5, z: 0}
   m_LocalScale: {x: 0.37261283, y: 0.37261283, z: 0.37261283}
   m_Children: []
   m_Father: {fileID: 0}
@@ -21361,7 +21443,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 161042081526b294ca257d6963672227, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c4b5f307fc83fb4093aed5e15842909, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -21380,8 +21462,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1861364775}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30.576, y: 6, z: 2.549585}
-  m_LocalScale: {x: 0.37568283, y: 0.28683114, z: 0.26995873}
+  m_LocalPosition: {x: -31.493, y: 6, z: 2.549585}
+  m_LocalScale: {x: 0.32099846, y: 0.28683114, z: 0.26995873}
   m_Children: []
   m_Father: {fileID: 503368299}
   m_RootOrder: 2
@@ -21461,7 +21543,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 28.000002, y: 8.421876}
+    oldSize: {x: 33.52, y: 7.9217186}
     newSize: {x: 28.000002, y: 8.421876}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -21725,6 +21807,7 @@ RectTransform:
   - {fileID: 1815829872}
   - {fileID: 1108195064}
   - {fileID: 346854653}
+  - {fileID: 1296688587}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
