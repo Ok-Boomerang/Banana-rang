@@ -961,7 +961,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 1
+    m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2932,6 +2932,11 @@ MonoBehaviour:
   Blade: {fileID: 1812298685}
   Bouncy: {fileID: 1557197411}
   Quad: {fileID: 1895108064}
+  Uninum: 0
+  Binum: 0
+  Bladenum: 0
+  Bouncenum: 0
+  Quadnum: 0
 --- !u!4 &1144493911
 Transform:
   m_ObjectHideFlags: 0
