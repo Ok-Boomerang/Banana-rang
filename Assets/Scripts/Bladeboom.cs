@@ -26,6 +26,13 @@ public class Bladeboom : MonoBehaviour
         boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * 20f;
     }
 
+    public static void gravity()
+    {
+        Vector2 change = new Vector2(boomer.GetComponent<Rigidbody2D>().velocity.x,
+            boomer.GetComponent<Rigidbody2D>().velocity.y - .2f);
+        boomer.GetComponent<Rigidbody2D>().velocity = change;
+    }
+
     public static void returnboom()
     {//change 
         boomer.GetComponent<Rigidbody2D>().velocity = boomer.GetComponent<Rigidbody2D>().velocity * -1;

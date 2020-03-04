@@ -6881,8 +6881,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -181, y: 95.30002}
-  m_SizeDelta: {x: 413, y: 139.3}
+  m_AnchoredPosition: {x: -257.5, y: 95.30002}
+  m_SizeDelta: {x: 260, y: 139.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &484252562
 MonoBehaviour:
@@ -8256,7 +8256,7 @@ MonoBehaviour:
   _home: {fileID: 1341770807}
   arrow: {fileID: 275452604}
   maxArrow: {fileID: 787622379}
-  currboom: {fileID: 2057397711}
+  currboom: {fileID: 1191824639}
   Uni: {fileID: 2057397711}
   Bi: {fileID: 1416551640}
   Blade: {fileID: 1191824639}
@@ -8264,7 +8264,7 @@ MonoBehaviour:
   Quad: {fileID: 733937339}
   Uninum: 2
   Binum: 0
-  Bladenum: 2
+  Bladenum: 3
   Bouncenum: 0
   Quadnum: 0
 --- !u!50 &870924135
@@ -14710,7 +14710,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1191824640
 Transform:
   m_ObjectHideFlags: 0
@@ -26486,7 +26486,7 @@ MonoBehaviour:
   _par: 4
   uniBooms: 2
   biBooms: 0
-  bladeBooms: 2
+  bladeBooms: 3
   bounceBooms: 0
   quadBooms: 0
   gameOverPanel: {fileID: 140775975}
@@ -26586,7 +26586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2057397712
 SpriteRenderer:
   m_ObjectHideFlags: 0
