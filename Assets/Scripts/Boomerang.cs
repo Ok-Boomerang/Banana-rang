@@ -155,6 +155,24 @@ public class Boomerang : MonoBehaviour
         }
         else if (_thrown)
         {
+            if (currboom == Blade)
+            {
+                Bladeboom.gravity();
+                if (Mathf.Abs(
+                        (Camera.main.transform.position.y - (Camera.main.orthographicSize)) - transform.position.y) <=
+                    0.5f || Mathf.Abs(
+                        (Camera.main.transform.position.x + (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <=
+                    0.5f || Mathf.Abs(
+                        (Camera.main.transform.position.x - (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <=
+                    0.5f)
+                {
+                    _thrown = false;
+                    _forward = true;
+                    _boom_rb.velocity = new Vector3(0f, 0f, 0f);
+                    arrow.localScale = new Vector3(0f, 0f, 0f);
+
+                }
+            }
             transform.Rotate(0, 0, 1100 * Time.deltaTime);
             if (_forward & Vector3.Distance(_distancereleased, transform.position) >= _distancetogo)
             {
@@ -166,11 +184,6 @@ public class Boomerang : MonoBehaviour
                 else if (currboom == Bi)
                 {
                     BIboom.returnboom();
-                }
-                else if (currboom == Blade)
-                {
-
-                    Bladeboom.returnboom();
                 }
                 else if (currboom == Bouncy)
                 {

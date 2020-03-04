@@ -180,6 +180,10 @@ public class monkey : MonoBehaviour
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, _screenposition.x - _halfWidth + _objectWidth, _screenposition.x + _halfWidth - _objectWidth);
         viewPos.y = Mathf.Clamp(viewPos.y, _screenposition.y - _halfHeight + _objectHeight, _screenposition.y + _halfHeight - _objectHeight);
+        if (viewPos.y >= 11.7)
+        {
+            monkeyRB.velocity =  new Vector3(0f,-0.7f,0f);
+        }
         transform.position = viewPos;
     }
 
