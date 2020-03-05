@@ -14,7 +14,7 @@ public class UniManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "x" + uniLeft;
+        GetComponent<Text>().text = uniLeft.ToString();
 
     }
 }

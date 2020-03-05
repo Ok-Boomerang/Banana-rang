@@ -14,7 +14,7 @@ public class BladeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "x" + bladeLeft;
+        GetComponent<Text>().text = bladeLeft.ToString();
 
     }
 }
