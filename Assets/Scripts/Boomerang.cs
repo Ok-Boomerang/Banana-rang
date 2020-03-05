@@ -104,11 +104,14 @@ public class Boomerang : MonoBehaviour
                 {
                     _power = 1 - (float) (powerholder - Math.Truncate(powerholder));
                 }
-                arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
-                Vector3 aScale = arrow.localScale;
-                aScale.y = _power * arrowScale.y * 1.5f;
-                aScale.x = arrowScale.x;
-                arrow.localScale = aScale;
+                if (_clicked)
+                {
+                    arrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
+                    Vector3 aScale = arrow.localScale;
+                    aScale.y = _power * arrowScale.y * 1.5f;
+                    aScale.x = arrowScale.x;
+                    arrow.localScale = aScale;
+                }
             }
 
             if (!(Input.GetMouseButtonUp(0) & _clicked)) return;
@@ -222,6 +225,7 @@ public class Boomerang : MonoBehaviour
         transform.position = _home.position;
         transform.rotation = _home.rotation;
         transform.localScale = new Vector3(_home.localScale.x * scale.x, scale.y, scale.z);
+        _forward = true;
     }
 
    // Used to switch boomerang
