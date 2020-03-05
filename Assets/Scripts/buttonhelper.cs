@@ -31,6 +31,13 @@ public class buttonhelper : Selectable
             case "Menu":
                 Menu.LoadLevel(0);
                 break;
+            case "Back":
+                Menu.LoadLevel(0);
+                break;
+            case "Restart":
+                Boomerang.Restart();
+                Menu.LoadLevel(SceneManager.GetActiveScene().buildIndex);
+                break;
             default:
                 x = Int32.Parse(gameObject.name) + 2;
                 Menu.LoadLevel(x);

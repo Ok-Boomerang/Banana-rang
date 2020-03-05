@@ -176,22 +176,25 @@ public class Boomerang : MonoBehaviour
             transform.Rotate(0, 0, 1100 * Time.deltaTime);
             if (_forward & Vector3.Distance(_distancereleased, transform.position) >= _distancetogo)
             {
-                _forward = false;
                 if (currboom == Uni)
                 {
                     Uniboom.returnboom();
+                    _forward = false;
                 }
                 else if (currboom == Bi)
                 {
                     BIboom.returnboom();
+                    _forward = false;
                 }
                 else if (currboom == Bouncy)
                 {
                     Bouncyboom.returnboom();
+                    _forward = false;
                 }
                 else if (currboom == Quad)
                 {
                     Quadboom.returnboom();
+                    _forward = false;
                 }
             }
             else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f || 
