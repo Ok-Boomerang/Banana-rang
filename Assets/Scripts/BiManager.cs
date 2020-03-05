@@ -14,7 +14,7 @@ public class BiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "x" + biLeft;
+        GetComponent<Text>().text = biLeft.ToString();
 
     }
 }
