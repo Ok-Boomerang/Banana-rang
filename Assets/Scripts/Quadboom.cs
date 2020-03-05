@@ -46,6 +46,9 @@ public class Quadboom : MonoBehaviour
                 Boomerang._thrown = false;
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 break;
+            case "Water":
+                boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * -10f;
+                break;
         }
     }
 }

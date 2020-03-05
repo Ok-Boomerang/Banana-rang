@@ -76,7 +76,6 @@ public class Boomerang : MonoBehaviour
     }
     void Update()
     {
-
         if (gameover & !_thrown) return;
             CurrentBoom();
         if (!_thrown & currboomsleft > 0)
@@ -158,9 +157,9 @@ public class Boomerang : MonoBehaviour
         }
         else if (_thrown)
         {
-            if (currboom == Blade)
+            if (currboom == Blade || currboom == Quad)
             {
-                Bladeboom.gravity();
+                if (currboom == Blade) Bladeboom.gravity();
                 if (Mathf.Abs(
                         (Camera.main.transform.position.y - (Camera.main.orthographicSize)) - transform.position.y) <=
                     0.5f || Mathf.Abs(
@@ -192,11 +191,6 @@ public class Boomerang : MonoBehaviour
                 else if (currboom == Bouncy)
                 {
                     Bouncyboom.returnboom();
-                    _forward = false;
-                }
-                else if (currboom == Quad)
-                {
-                    Quadboom.returnboom();
                     _forward = false;
                 }
             }
