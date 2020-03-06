@@ -65,6 +65,7 @@ public class Winning : MonoBehaviour
             else
             {
                 overText = "Good Try";
+                Levelend.gameOverText.color = new Color32(233, 14, 14, 255);
             }
             GameOver();
         }
