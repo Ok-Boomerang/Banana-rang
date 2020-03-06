@@ -10,10 +10,6 @@ public class Levelend : MonoBehaviour
     void Awake()
     {
         gameOverText = transform.GetChild(0).GetComponent<Text>();
-        if (gameOverText.text == "Good Try")
-        {
-            gameOverText.color = Color.red;
-        }
         var buttons = transform.Find("Buttons");
         Button replaybtn = buttons.Find("Replay").GetComponent<Button>();
         replaybtn.onClick.AddListener(Replay);

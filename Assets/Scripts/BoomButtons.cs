@@ -9,20 +9,20 @@ public class BoomButtons : MonoBehaviour
     void Awake()
     {
         var buttons = transform.Find("BoomerangButtons");
-        var unibtn = buttons.Find("Unibtn").GetComponent<Button>();
-        unibtn.onClick.AddListener(UniBoom);
+        var unibtn = buttons.Find("Unibtn");
+        if (unibtn) unibtn.GetComponent<Button>().onClick.AddListener(UniBoom);
 
-        var bibtn = buttons.Find("Bibtn").GetComponent<Button>();
-        bibtn.onClick.AddListener(BiBoom);
+        var bibtn = buttons.Find("Bibtn");
+        if (bibtn) bibtn.GetComponent<Button>().onClick.AddListener(BiBoom);
 
-        var bladebtn = buttons.Find("Bladebtn").GetComponent<Button>();
-        bladebtn.onClick.AddListener(BladeBoom);
+        var bladebtn = buttons.Find("Bladebtn");
+        if (bladebtn) bladebtn.GetComponent<Button>().onClick.AddListener(BladeBoom);
         
-        var bouncybtn = buttons.Find("Bouncybtn").GetComponent<Button>();
-        bouncybtn.onClick.AddListener(BouncyBoom);
+        var bouncybtn = buttons.Find("Bouncybtn");
+        if (bouncybtn) bouncybtn.GetComponent<Button>().onClick.AddListener(BouncyBoom);
         
-        var quadbtn = buttons.Find("Quadbtn").GetComponent<Button>();
-        quadbtn.onClick.AddListener(QuadBoom);
+        var quadbtn = buttons.Find("Quadbtn");
+        if (quadbtn) quadbtn.GetComponent<Button>().onClick.AddListener(QuadBoom);
     }
 
     private void UniBoom()
