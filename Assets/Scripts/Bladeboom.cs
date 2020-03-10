@@ -23,13 +23,13 @@ public class Bladeboom : MonoBehaviour
         Boomerang._distancetogo =
             (power * _maxdistance > _maxdistance ? _maxdistance : power * _maxdistance);
         boomer.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-        boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * 20f;
+        boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * power * 30f;
     }
 
     public static void gravity()
     {
         Vector2 change = new Vector2(boomer.GetComponent<Rigidbody2D>().velocity.x,
-            boomer.GetComponent<Rigidbody2D>().velocity.y - .2f);
+            boomer.GetComponent<Rigidbody2D>().velocity.y - .3f);
         boomer.GetComponent<Rigidbody2D>().velocity = change;
     }
 
