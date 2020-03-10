@@ -9,6 +9,8 @@ public class Levelend : MonoBehaviour
     public static Text gameOverText;
     public static GameObject next;
     public static GameObject replay;
+    public static float replayloc;
+    public static float replaylocmoved;
     void Awake()
     {
         gameOverText = transform.GetChild(0).GetComponent<Text>();
@@ -18,6 +20,8 @@ public class Levelend : MonoBehaviour
         next = transform.Find("Next").gameObject;
         Button nextbtn = next.GetComponent<Button>();
         nextbtn.onClick.AddListener(Next);
+        replayloc = replay.transform.position.x;
+        replaylocmoved = replayloc + 110f;
     }
 
     private void Update()
@@ -25,11 +29,12 @@ public class Levelend : MonoBehaviour
         if(gameOverText.text == "Good Try")
         {
             next.SetActive(false);
-
+            replay.transform.position = new Vector3(replaylocmoved, replay.transform.position.y, replay.transform.position.z);
         }
         else
         {
             next.SetActive(true);
+            replay.transform.position = new Vector3(replayloc, replay.transform.position.y, replay.transform.position.z);
         }
     }
 
