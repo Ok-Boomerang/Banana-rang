@@ -79,7 +79,11 @@ public class Boomerang : MonoBehaviour
             CurrentBoom();
         if (!_thrown & currboomsleft > 0)
         {
-            if (EventSystem.current.IsPointerOverGameObject()) return;
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                arrow.localScale = new Vector3(0f, 0f, 0f);
+                return;
+            }
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
             maxArrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
