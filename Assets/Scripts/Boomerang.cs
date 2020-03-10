@@ -63,7 +63,6 @@ public class Boomerang : MonoBehaviour
                 currboomsleft = Quadnum;
                 break;
         }
-        Debug.Log(currboomsleft);
     }
    private void Start()
     {
@@ -80,8 +79,11 @@ public class Boomerang : MonoBehaviour
             CurrentBoom();
         if (!_thrown & currboomsleft > 0)
         {
-            Debug.Log(currboomsleft);
-            if (EventSystem.current.IsPointerOverGameObject()) return;
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                arrow.localScale = new Vector3(0f, 0f, 0f);
+                return;
+            }
             _lookdirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             _lookAngle = Mathf.Atan2(_lookdirection.y, _lookdirection.x) * Mathf.Rad2Deg;
             maxArrow.rotation = Quaternion.LookRotation(Vector3.forward, _lookdirection);
@@ -157,9 +159,10 @@ public class Boomerang : MonoBehaviour
         }
         else if (_thrown)
         {
-            if (currboom == Blade || currboom == Quad)
+            if (currboom == Blade || currboom == Quad || currboom == Bouncy)
             {
                 if (currboom == Blade) Bladeboom.gravity();
+                if (currboom == Quad) Quadboom.gravity();
                 if (Mathf.Abs(
                         (Camera.main.transform.position.y - (Camera.main.orthographicSize)) - transform.position.y) <=
                     0.5f || Mathf.Abs(
@@ -186,11 +189,6 @@ public class Boomerang : MonoBehaviour
                 else if (currboom == Bi)
                 {
                     BIboom.returnboom();
-                    _forward = false;
-                }
-                else if (currboom == Bouncy)
-                {
-                    Bouncyboom.returnboom();
                     _forward = false;
                 }
             }
