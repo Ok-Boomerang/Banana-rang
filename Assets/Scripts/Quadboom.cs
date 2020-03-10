@@ -6,6 +6,7 @@ public class Quadboom : MonoBehaviour
 {
     private static GameObject boomer;
     public static float _maxdistance = 40f;
+    private static float grav = .1f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,20 @@ public class Quadboom : MonoBehaviour
     }
     public static void throwboomerang(float angle,float power)
     {//change
+        grav = .1f;
+        Debug.Log(grav);
         Boomerang._maxdistance = _maxdistance;
         Boomerang._distancetogo =
             (power * _maxdistance > _maxdistance ? _maxdistance : power * _maxdistance);
         boomer.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
         boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * 20f;
+    }
+
+    public static void gravity()
+    {
+        Vector2 change = new Vector2(boomer.GetComponent<Rigidbody2D>().velocity.x,
+            boomer.GetComponent<Rigidbody2D>().velocity.y - grav);
+        boomer.GetComponent<Rigidbody2D>().velocity = change;
     }
 
     public static void returnboom()
@@ -47,7 +57,8 @@ public class Quadboom : MonoBehaviour
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 break;
             case "Water":
-                boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * -10f;
+                grav = .4f;
+                Debug.Log(grav);
                 break;
         }
     }
