@@ -17,7 +17,7 @@ public class buttonhelper : Selectable
         switch (gameObject.name)
         {
             case "Start":
-                Menu.LoadLevel(3);
+                Menu.LoadLevel(2);
                 break;
             case "Levels":
                 Menu.LoadLevel(1);
