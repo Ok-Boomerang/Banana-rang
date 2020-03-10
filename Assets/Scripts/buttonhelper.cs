@@ -11,7 +11,7 @@ public class buttonhelper : Selectable
 
     void Update()
     {
-        visual.GetComponent<SpriteRenderer>().enabled = IsHighlighted() == true;
+        visual.GetComponent<RawImage>().enabled = IsHighlighted() == true;
         if (!IsPressed()) return;
         int x;
         switch (gameObject.name)
