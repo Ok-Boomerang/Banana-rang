@@ -160,6 +160,7 @@ public class Boomerang : MonoBehaviour
             if (currboom == Blade || currboom == Quad)
             {
                 if (currboom == Blade) Bladeboom.gravity();
+                if (currboom == Quad) Quadboom.gravity();
                 if (Mathf.Abs(
                         (Camera.main.transform.position.y - (Camera.main.orthographicSize)) - transform.position.y) <=
                     0.5f || Mathf.Abs(
