@@ -21,7 +21,6 @@ public class Quadboom : MonoBehaviour
     public static void throwboomerang(float angle,float power)
     {//change
         grav = .1f;
-        Debug.Log(grav);
         Boomerang._maxdistance = _maxdistance;
         Boomerang._distancetogo =
             (power * _maxdistance > _maxdistance ? _maxdistance : power * _maxdistance);
@@ -58,7 +57,6 @@ public class Quadboom : MonoBehaviour
                 break;
             case "Water":
                 grav = .4f;
-                Debug.Log(grav);
                 break;
         }
     }
