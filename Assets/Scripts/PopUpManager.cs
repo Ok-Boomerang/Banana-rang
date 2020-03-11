@@ -55,7 +55,7 @@ public class PopUpManager : MonoBehaviour
             biPop = GameObject.Find("biPop").gameObject;
             Button bibtn = biPop.GetComponent<Button>();
             bibtn.onClick.AddListener(Close3);
-            if (Boomerang.restarted) MushPanel.SetActive(false);
+            if (Boomerang.restarted) BiPanel.SetActive(false);
         }
 
     }
