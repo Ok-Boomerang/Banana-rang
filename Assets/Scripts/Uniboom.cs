@@ -32,7 +32,6 @@ public class Uniboom : MonoBehaviour
         switch (GO.tag) // which object has it collided with 
         {
             case "Platform":
-                Debug.Log("Platform object");
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
                 Boomerang.globalArrow.localScale = new Vector3(0f,0f,0f);
@@ -43,6 +42,12 @@ public class Uniboom : MonoBehaviour
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 break;
             case "Water":
+                boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang._thrown = false;
+                Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
+                break;
+            case "HorizontalPlatform":
+                
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);

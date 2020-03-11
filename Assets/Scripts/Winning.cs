@@ -47,7 +47,7 @@ public class Winning : MonoBehaviour
     }
     void GameOver()
     {
-        if (gameEnd.levelsComplete == 15 & overText != "Good Try") { overText = "That's all!"; }
+        if (gameEnd.levelsComplete == 17 & overText != "Good Try") { overText = "That's all!"; }
         gameOverPanel.SetActive(true);
         Levelend.gameOverText.text = overText;
         Boomerang.GameOver(); 
