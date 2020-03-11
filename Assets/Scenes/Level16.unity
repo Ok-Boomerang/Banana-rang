@@ -1840,7 +1840,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -3194,11 +3194,13 @@ MonoBehaviour:
   Blade: {fileID: 1191824639}
   Bouncy: {fileID: 326209046}
   Quad: {fileID: 733937339}
+  Cool: {fileID: 0}
   Uninum: 0
   Binum: 0
   Bladenum: 0
   Bouncenum: 0
   Quadnum: 3
+  Coolnum: 0
 --- !u!50 &870924135
 Rigidbody2D:
   serializedVersion: 4
@@ -15989,6 +15991,7 @@ MonoBehaviour:
   bladeBooms: 0
   bounceBooms: 0
   quadBooms: 3
+  coolBooms: 0
   gameOverPanel: {fileID: 140775975}
   overText: '"Good Try"'
   canvas: {fileID: 1950520194}
