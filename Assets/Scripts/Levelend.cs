@@ -46,7 +46,7 @@ public class Levelend : MonoBehaviour
 
     private void Next()
     {
-        Boomerang.Restart();
+        Boomerang.Next();
         Menu.LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
