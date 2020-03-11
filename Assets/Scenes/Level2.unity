@@ -6250,7 +6250,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: See what happens when you jump on the mushroom repeatedly!
+  m_Text: You can bounce on a mushroom by jumping on it once. You will gradually bounce
+    higher after landing on it repeatedly.
 --- !u!222 &366023652
 CanvasRenderer:
   m_ObjectHideFlags: 0
