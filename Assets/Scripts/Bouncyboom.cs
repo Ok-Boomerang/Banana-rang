@@ -27,7 +27,14 @@ public class Bouncyboom : MonoBehaviour
         Boomerang._distancetogo =
             (power * _maxdistance > _maxdistance ? _maxdistance : power * _maxdistance);
         boomer.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-        boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * 20f;
+        if (power * 30f < 10f)
+        {
+            boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * 15f;
+        }
+        else
+        {
+            boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * power * 30f;
+        }
     }
 
     public static void returnboom()
@@ -59,7 +66,7 @@ public class Bouncyboom : MonoBehaviour
                 {
                     bounceHorizontal();
                     numBounces += 1;
-                    bounceDir *= -1;
+                    //bounceDir *= -1;
                 }
                 else
                 {
@@ -73,7 +80,7 @@ public class Bouncyboom : MonoBehaviour
                 {
                     bounceVertical();
                     numBounces += 1;
-                    bounceDir *= -1;
+                    //bounceDir *= -1;
                 }
                 else
                 {
