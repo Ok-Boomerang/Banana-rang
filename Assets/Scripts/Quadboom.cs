@@ -25,7 +25,7 @@ public class Quadboom : MonoBehaviour
         Boomerang._distancetogo =
             (power * _maxdistance > _maxdistance ? _maxdistance : power * _maxdistance);
         boomer.transform.rotation = Quaternion.Euler(0f, 0f, angle - 90f);
-        boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * 20f;
+        boomer.GetComponent<Rigidbody2D>().velocity = boomer.transform.up * power * 30f;
     }
 
     public static void gravity()
@@ -56,7 +56,7 @@ public class Quadboom : MonoBehaviour
                 Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 break;
             case "Water":
-                grav = .4f;
+                grav = .8f;
                 break;
         }
     }
