@@ -46,9 +46,9 @@ public class Quadboom : MonoBehaviour
         switch (GO.tag) // which object has it collided with 
         {
             case "Platform":
-                Debug.Log("Platform object");
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
                 Boomerang._thrown = false;
+                Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
                 break;
             case "Greenery":
                 boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);

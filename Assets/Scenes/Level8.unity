@@ -14391,7 +14391,7 @@ GameObject:
   - component: {fileID: 1182050440}
   - component: {fileID: 1182050439}
   m_Layer: 5
-  m_Name: X
+  m_Name: BladeX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26083,7 +26083,7 @@ GameObject:
   - component: {fileID: 1691073308}
   - component: {fileID: 1691073307}
   m_Layer: 5
-  m_Name: X
+  m_Name: UniX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

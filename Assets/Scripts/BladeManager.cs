@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class BladeManager : MonoBehaviour
 {
     public static int bladeLeft;
-    public static GameObject x;
+    public static GameObject bladex;
 
     void Start()
     {
         bladeLeft = Winning.startBlade;
-        x = GameObject.Find("X").gameObject;
-        x.SetActive(false);
+        bladex = GameObject.Find("BladeX").gameObject;
+        bladex.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         GetComponent<Text>().text = bladeLeft.ToString();
-        if (bladeLeft == 0) x.SetActive(true);
+        if (bladeLeft == 0) bladex.SetActive(true);
 
     }
 }

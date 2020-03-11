@@ -8505,7 +8505,7 @@ GameObject:
   - component: {fileID: 1104475865}
   - component: {fileID: 1104475864}
   m_Layer: 5
-  m_Name: X
+  m_Name: BiX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
