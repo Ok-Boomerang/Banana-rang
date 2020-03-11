@@ -8,6 +8,7 @@ public class Banana : MonoBehaviour
     public Transform particle;
     private bool single = false;
     private bool multi = false;
+    private bool pointsavailable = true; 
     
     void Start()
     {
@@ -18,10 +19,21 @@ public class Banana : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.gameObject.CompareTag("Boomerang")) return;
-        var emissionModule = particle.GetComponent<ParticleSystem>().emission;
-        emissionModule.enabled = true;
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        StartCoroutine(StopParticle());
+        if (pointsavailable)
+        {
+            var emissionModule = particle.GetComponent<ParticleSystem>().emission;
+            emissionModule.enabled = true;
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            StartCoroutine(StopParticle());
+            if (gameObject.CompareTag("SingleBanana"))
+            {
+                ScoreManager.Score += 1;
+            }
+            else if (gameObject.CompareTag("MultiBanana"))
+            {
+                ScoreManager.Score += 3;
+            }
+        }
 
     }
 
@@ -31,24 +43,6 @@ public class Banana : MonoBehaviour
         var emissionModule = particle.GetComponent<ParticleSystem>().emission;
         emissionModule.enabled = false;
         yield return new WaitForSeconds(0.5f);
-        if (gameObject.CompareTag("SingleBanana"))
-        {
-            single = true;
-        }
-        else if (gameObject.CompareTag("MultiBanana"))
-        {
-            multi = true;
-        }
         Destroy(gameObject);
-        if (single)
-        {
-            ScoreManager.Score += 1;
-            single = false;
-        }
-        if (multi)
-        {
-            ScoreManager.Score += 3;
-            multi = false;
-        }
     }
 }
