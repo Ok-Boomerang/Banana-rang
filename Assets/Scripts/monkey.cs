@@ -29,7 +29,7 @@ public class monkey : MonoBehaviour
     // end of sprite vars 
     
     // movement vars 
-    private float _jumpspeed = 350f; // used to set how high the monkey can jump on a certain surface.
+    private float _jumpspeed = 450f; // used to set how high the monkey can jump on a certain surface.
     private float _speed = 4f; // how fast the monkey moves left and right
     private bool _up;
     private bool _left;
