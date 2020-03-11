@@ -72,7 +72,7 @@ public class PopUpManager : MonoBehaviour
         if (GameObject.Find("BladePanel"))
         {
             BladePanel = GameObject.Find("BladePanel").gameObject;
-            bladePop = GameObject.Find("biPop2").gameObject;
+            bladePop = GameObject.Find("bladePop").gameObject;
             Button bladebtn = bladePop.GetComponent<Button>();
             bladebtn.onClick.AddListener(Close5);
             if (Boomerang.restarted) BladePanel.SetActive(false);
