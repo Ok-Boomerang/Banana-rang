@@ -71,7 +71,7 @@ public class monkey : MonoBehaviour
         _right = Input.GetKey(KeyCode.D);
         _left = Input.GetKey(KeyCode.A);
 
-        if (_up & !_jumped)
+        if (_up & !_jumped & monkeyRB.velocity.y == 0f)
         {
             //make the monkey jump up, gets one jump at a time
             _jumped = true;
