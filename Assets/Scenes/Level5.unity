@@ -5975,7 +5975,7 @@ GameObject:
   - component: {fileID: 296573686}
   - component: {fileID: 296573685}
   m_Layer: 5
-  m_Name: BiPanel
+  m_Name: BiPanel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6478,7 +6478,7 @@ GameObject:
   - component: {fileID: 439423741}
   - component: {fileID: 439423740}
   m_Layer: 5
-  m_Name: biPop
+  m_Name: biPop2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

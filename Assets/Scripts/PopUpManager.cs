@@ -10,11 +10,15 @@ public class PopUpManager : MonoBehaviour
     private GameObject InstPanel;
     private GameObject MushPanel;
     private GameObject BiPanel;
+    private GameObject BiPanel2;
+    private GameObject BladePanel;
     private GameObject parPop;
     private GameObject boomPop;
     private GameObject instPop;
     private GameObject mushPop;
     private GameObject biPop;
+    private GameObject biPop2;
+    private GameObject bladePop;
     void Start()
     {
         if (GameObject.Find("ParPanel"))
@@ -57,6 +61,22 @@ public class PopUpManager : MonoBehaviour
             bibtn.onClick.AddListener(Close3);
             if (Boomerang.restarted) BiPanel.SetActive(false);
         }
+        if(GameObject.Find("BiPanel2"))
+        {
+            BiPanel2 = GameObject.Find("BiPanel2").gameObject;
+            biPop2 = GameObject.Find("biPop2").gameObject;
+            Button bibtn2 = biPop2.GetComponent<Button>();
+            bibtn2.onClick.AddListener(Close4);
+            if (Boomerang.restarted) BiPanel2.SetActive(false);
+        }
+        if (GameObject.Find("BladePanel"))
+        {
+            BladePanel = GameObject.Find("BladePanel").gameObject;
+            bladePop = GameObject.Find("biPop2").gameObject;
+            Button bladebtn = bladePop.GetComponent<Button>();
+            bladebtn.onClick.AddListener(Close5);
+            if (Boomerang.restarted) BladePanel.SetActive(false);
+        }
 
     }
 
@@ -86,6 +106,14 @@ public class PopUpManager : MonoBehaviour
     private void Close3()
     {
         BiPanel.SetActive(false);
+    }
+    private void Close4()
+    {
+        BiPanel2.SetActive(false);
+    }
+    private void Close5()
+    {
+        BladePanel.SetActive(false);
     }
     // Update is called once per frame
     void Update()
