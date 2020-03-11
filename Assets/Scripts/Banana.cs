@@ -31,7 +31,6 @@ public class Banana : MonoBehaviour
             {
                 ScoreManager.Score += 3;
             }
-
             pointsavailable = false;
         }
 

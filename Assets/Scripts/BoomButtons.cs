@@ -23,6 +23,9 @@ public class BoomButtons : MonoBehaviour
         
         var quadbtn = buttons.Find("Quadbtn");
         if (quadbtn) quadbtn.GetComponent<Button>().onClick.AddListener(QuadBoom);
+
+        var coolbtn = buttons.Find("Coolbtn");
+        if(coolbtn) coolbtn.GetComponent<Button>().onClick.AddListener(CoolBoom);
     }
 
     private void UniBoom()
@@ -44,6 +47,11 @@ public class BoomButtons : MonoBehaviour
     private void QuadBoom()
     {
         if (QuadManager.quadLeft > 0) redirect("Quad");
+    }
+
+    private void CoolBoom()
+    {
+        
     }
 
     private void redirect(string typee)
