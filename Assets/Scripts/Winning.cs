@@ -60,7 +60,8 @@ public class Winning : MonoBehaviour
                 else if (boomerangsLeft == _startBooms - globalPar - 1) { overText = "Bogey"; }
                 else if (boomerangsLeft == _startBooms - globalPar) { overText = "On Par!"; }
                 else if (boomerangsLeft == _startBooms - globalPar + 1) { overText = "Birdie"; }
-                else if (boomerangsLeft >= _startBooms - globalPar + 2) { overText = "Eagle"; }
+                else if (boomerangsLeft == _startBooms - globalPar + 2) { overText = "Eagle"; }
+                else if (boomerangsLeft >= _startBooms - globalPar + 3) { overText = "Albatross"; }
             }
             else
             {
