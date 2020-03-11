@@ -22,8 +22,8 @@ public class buttonhelper : Selectable
             case "Levels":
                 Menu.LoadLevel(1);
                 break;
-            case "Instructions":
-                Menu.LoadLevel(2);
+            case "FreePlay":
+                Menu.LoadLevel(20);
                 break;
             case "Quit":
                 Menu.QuitGame();
