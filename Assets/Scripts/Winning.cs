@@ -26,6 +26,7 @@ public class Winning : MonoBehaviour
     public static int startBlade;
     public static int startBounce;
     public static int startQuad;
+    public static int startCool;
     public Transform canvas;
     // Start is called before the first frame update
     void Awake()
@@ -35,7 +36,8 @@ public class Winning : MonoBehaviour
         startBlade = bladeBooms;
         startBounce = bounceBooms;
         startQuad = quadBooms;
-        _startBooms = uniBooms + biBooms + bladeBooms + bounceBooms + quadBooms;
+        startCool = coolBooms;
+        _startBooms = uniBooms + biBooms + bladeBooms + bounceBooms + quadBooms + coolBooms;
         boomerangsLeft = _startBooms;
         globalPar = _par;
     }
