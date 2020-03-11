@@ -14,7 +14,7 @@ public class QuadManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "x" + quadLeft;
+        GetComponent<Text>().text = quadLeft.ToString();
 
     }
 }
