@@ -7,6 +7,8 @@ public class Bouncyboom : MonoBehaviour
     private static GameObject boomer;
     public static float _maxdistance = 40f;
     public static int numBounces = 0;
+
+    public static int bounceDir = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +59,7 @@ public class Bouncyboom : MonoBehaviour
                 {
                     bounceHorizontal();
                     numBounces += 1;
+                    bounceDir *= -1;
                 }
                 else
                 {
@@ -70,6 +73,7 @@ public class Bouncyboom : MonoBehaviour
                 {
                     bounceVertical();
                     numBounces += 1;
+                    bounceDir *= -1;
                 }
                 else
                 {
