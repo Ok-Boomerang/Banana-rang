@@ -6,8 +6,6 @@ using UnityEngine;
 public class Banana : MonoBehaviour
 {
     public Transform particle;
-    private bool single = false;
-    private bool multi = false;
     private bool pointsavailable = true; 
     
     void Start()
@@ -33,6 +31,8 @@ public class Banana : MonoBehaviour
             {
                 ScoreManager.Score += 3;
             }
+
+            pointsavailable = false;
         }
 
     }
