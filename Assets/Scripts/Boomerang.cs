@@ -77,9 +77,10 @@ public class Boomerang : MonoBehaviour
     void Update()
     {
         if (gameover & !_thrown) return;
-            CurrentBoom();
+            //CurrentBoom();
         if (!_thrown & currboomsleft > 0)
         {
+            CurrentBoom();
             if (EventSystem.current.IsPointerOverGameObject())
             {
                 arrow.localScale = new Vector3(0f, 0f, 0f);
