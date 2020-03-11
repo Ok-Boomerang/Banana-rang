@@ -294,6 +294,18 @@ public class Boomerang : MonoBehaviour
       Winning.boomerangsLeft = Winning._startBooms;
       _thrown = false;
       _forward = true;
+      gameEnd.levelsComplete += 1;
 
   }
+
+    public static void Reset()
+    {
+        gameover = false;
+        ScoreManager.Score = 0;
+        ScoreManager.Thrown = 0;
+        Winning.boomerangsLeft = Winning._startBooms;
+        _thrown = false;
+        _forward = true;
+
+    }
 }

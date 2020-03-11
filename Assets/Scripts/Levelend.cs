@@ -30,11 +30,18 @@ public class Levelend : MonoBehaviour
         {
             next.SetActive(false);
             replay.transform.position = new Vector3(replaylocmoved, replay.transform.position.y, replay.transform.position.z);
+            replay.SetActive(true);
+        }
+        else if (gameOverText.text == "That's all!")
+        {
+            next.SetActive(false);
+            replay.SetActive(false);
         }
         else
         {
             next.SetActive(true);
             replay.transform.position = new Vector3(replayloc, replay.transform.position.y, replay.transform.position.z);
+            replay.SetActive(true);
         }
     }
 
