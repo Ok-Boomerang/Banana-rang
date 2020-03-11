@@ -1357,8 +1357,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "You've unlocked Blade Boomerangs!!!\n\nThese are the only boomerangs that
-    can cut through vines, \nbut be mindful, they travel like a projectile\nas show
-    below"
+    can cut through vines, \nbut be mindful, they travel like a projectile."
 --- !u!222 &256820533
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -15673,7 +15673,7 @@ MonoBehaviour:
 
     but make note, they travel like the blade boomerangs
 
-    but with a steeper trajectory after they hit the water'
+    but with a steeper trajectory after they hit the water.'
 --- !u!222 &1798191263
 CanvasRenderer:
   m_ObjectHideFlags: 0

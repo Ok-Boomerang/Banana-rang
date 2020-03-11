@@ -343,8 +343,8 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "You've unlocked V-Boomerangs!!!!\n\nWhen you aim the arrow upward, \nit
-    will travel in an upward V shape as shown below\nThe power bar still affects how
-    far it goes"
+    will travel in an upward V shape.\nAs usual, the arrow indicates how far it will
+    go."
 --- !u!222 &83992374
 CanvasRenderer:
   m_ObjectHideFlags: 0
