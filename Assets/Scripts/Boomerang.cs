@@ -178,7 +178,8 @@ public class Boomerang : MonoBehaviour
 
                 }
             }
-            transform.Rotate(0, 0, 1100 * Time.deltaTime);
+            if(currboom!= Bouncy) transform.Rotate(0, 0, 1100 * Time.deltaTime);
+            else transform.Rotate(0, 0, Bouncyboom.bounceDir * 600 * Time.deltaTime);
             if (_forward & Vector3.Distance(_distancereleased, transform.position) >= _distancetogo)
             {
                 if (currboom == Uni)

@@ -14,7 +14,7 @@ public class BounceManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Text>().text = "x" + bounceLeft;
+        GetComponent<Text>().text = bounceLeft.ToString();
 
     }
 }
