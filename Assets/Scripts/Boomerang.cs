@@ -280,7 +280,7 @@ public class Boomerang : MonoBehaviour
       ScoreManager.Score = 0;
       ScoreManager.Thrown = 0;
       Winning.boomerangsLeft = Winning._startBooms;
-      _boom_rb.velocity = new Vector3(0f,0f,0f);
+      //_boom_rb.velocity = new Vector3(0f,0f,0f);
       _thrown = false;
       _forward = true;
        restarted = true;
