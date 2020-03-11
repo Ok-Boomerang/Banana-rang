@@ -41,9 +41,11 @@ public class Coolboom : MonoBehaviour
             Boomerang.resetboom();
             return;
         }
-        boomer.transform.position = new Vector2(centeroftravel.x + ( x * MCos(alpha1) * MCos(tilt1)) - ( 3f * MSin(alpha1) * MSin(tilt1)),
-            centeroftravel.y + (x * MCos(alpha1) * MSin(tilt1)) + ( 3f * MSin(alpha1) * MCos(tilt1)));
-        alpha1 += 0.05f;
+        boomer.transform.position = new Vector2(
+                centeroftravel.x + (x * MCos(alpha1) * MCos(tilt1)) - (3f * MSin(alpha1) * MSin(tilt1)),
+                centeroftravel.y + (x * MCos(alpha1) * MSin(tilt1)) + (3f * MSin(alpha1) * MCos(tilt1)));
+
+        alpha1 += 0.04f;
     }
 
     static float MCos(float value)
