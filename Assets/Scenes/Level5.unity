@@ -7223,7 +7223,7 @@ GameObject:
   - component: {fileID: 653819163}
   - component: {fileID: 653819162}
   m_Layer: 5
-  m_Name: X
+  m_Name: BiX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -14449,7 +14449,7 @@ GameObject:
   - component: {fileID: 1068320085}
   - component: {fileID: 1068320084}
   m_Layer: 5
-  m_Name: X
+  m_Name: BladeX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

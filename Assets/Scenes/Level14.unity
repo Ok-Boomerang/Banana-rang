@@ -15806,7 +15806,7 @@ GameObject:
   - component: {fileID: 1865784065}
   - component: {fileID: 1865784064}
   m_Layer: 5
-  m_Name: X
+  m_Name: QuadX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

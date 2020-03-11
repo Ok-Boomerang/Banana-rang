@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class UniManager : MonoBehaviour
 {
     public static int uniLeft;
-    public static GameObject x;
+    public static GameObject unix;
 
     void Start()
     {
         uniLeft = Winning.startUni;
-        x = GameObject.Find("X").gameObject;
-        x.SetActive(false);
+        unix = GameObject.Find("UniX").gameObject;
+        unix.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         GetComponent<Text>().text = uniLeft.ToString();
-        if (uniLeft == 0) x.SetActive(true);
+        if (uniLeft == 0) unix.SetActive(true);
 
     }
 }

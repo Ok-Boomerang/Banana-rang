@@ -6,19 +6,19 @@ using UnityEngine.UI;
 public class BiManager : MonoBehaviour
 {
     public static int biLeft;
-    public static GameObject x;
+    public static GameObject bix;
 
     void Start()
     {
         biLeft = Winning.startBi;
-        x = GameObject.Find("X").gameObject;
-        x.SetActive(false);
+        bix = GameObject.Find("BiX").gameObject;
+        bix.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         GetComponent<Text>().text = biLeft.ToString();
-        if(biLeft == 0) x.SetActive(true);
+        if(biLeft == 0) bix.SetActive(true);
     }
 
 }

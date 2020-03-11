@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class QuadManager : MonoBehaviour
 {
     public static int quadLeft;
-    public static GameObject x;
+    public static GameObject quadx;
 
     void Start()
     {
         quadLeft = Winning.startQuad;
-        x = GameObject.Find("X").gameObject;
-        x.SetActive(false);
+        quadx = GameObject.Find("QuadX").gameObject;
+        quadx.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         GetComponent<Text>().text = quadLeft.ToString();
-        if (quadLeft == 0) x.SetActive(true);
+        if (quadLeft == 0) quadx.SetActive(true);
     }
 }
