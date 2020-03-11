@@ -43,7 +43,7 @@ public class buttonhelper : Selectable
                 Menu.LoadLevel(x);
                 break;
         }
-        Boomerang.Next();
+        Boomerang.Reset();
     }
     
     
