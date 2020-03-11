@@ -7201,8 +7201,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Now when you aim the arrow downward, \nit will travel in a downward V shape
-    as shown below!"
+  m_Text: "Now when you aim the arrow downward, \nit will travel in a downward V shape!"
 --- !u!222 &626160649
 CanvasRenderer:
   m_ObjectHideFlags: 0

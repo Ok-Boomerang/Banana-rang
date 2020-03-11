@@ -10170,7 +10170,7 @@ MonoBehaviour:
 
     These boomerangs will bounce off of rocks
 
-    but be careful, they will stop after 3 bounces'
+    but be careful, they will stop after 3 bounces.'
 --- !u!222 &1443763037
 CanvasRenderer:
   m_ObjectHideFlags: 0
