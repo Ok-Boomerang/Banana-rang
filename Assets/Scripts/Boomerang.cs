@@ -38,6 +38,7 @@ public class Boomerang : MonoBehaviour
     public int Bladenum;
     public int Bouncenum;
     public int Quadnum;
+    public static bool restarted = false;
    // end of vars 
    
    //private DebugHUD _hud;
@@ -281,6 +282,7 @@ public class Boomerang : MonoBehaviour
       _boom_rb.velocity = new Vector3(0f,0f,0f);
       _thrown = false;
       _forward = true;
+       restarted = true;
 
   }
 }

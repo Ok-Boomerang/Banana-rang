@@ -17,6 +17,7 @@ public class PopUpManager : MonoBehaviour
         parPop = GameObject.Find("parPop").gameObject;
         Button parbtn = parPop.GetComponent<Button>();
         parbtn.onClick.AddListener(Close);
+        if(Boomerang.restarted) ParPanel.SetActive(false);
         BoomerangsPanel = GameObject.Find("BoomerangsPanel").gameObject;
         boomPop = GameObject.Find("boomPop").gameObject;
         Button boombtn = boomPop.GetComponent<Button>();
