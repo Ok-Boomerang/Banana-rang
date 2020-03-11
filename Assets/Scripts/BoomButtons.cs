@@ -51,7 +51,7 @@ public class BoomButtons : MonoBehaviour
 
     private void CoolBoom()
     {
-        
+        if (CoolManager.coolLeft > 0) redirect("Cool");
     }
 
     private void redirect(string typee)
@@ -73,6 +73,9 @@ public class BoomButtons : MonoBehaviour
                 break;
             case("Quad"):
                 Boomerang.currboomsleft = QuadManager.quadLeft;
+                break;
+            case("Cool"):
+                Boomerang.currboomsleft = CoolManager.coolLeft;
                 break;
         }
     }

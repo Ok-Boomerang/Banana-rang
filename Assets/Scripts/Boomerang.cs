@@ -33,11 +33,13 @@ public class Boomerang : MonoBehaviour
     public GameObject Blade;
     public GameObject Bouncy;
     public GameObject Quad;
+    public GameObject Cool;
     public int Uninum;
     public int Binum;
     public int Bladenum;
     public int Bouncenum;
     public int Quadnum;
+    public int Coolnum;
     public static bool restarted = false;
    // end of vars 
    
@@ -62,6 +64,9 @@ public class Boomerang : MonoBehaviour
                 break;
             case("Quad"):
                 currboomsleft = Quadnum;
+                break;
+            case("Cool"):
+                currboomsleft = Coolnum;
                 break;
         }
     }
@@ -158,13 +163,21 @@ public class Boomerang : MonoBehaviour
                 ScoreManager.Thrown += 1;
                 Quadboom.throwboomerang( _lookAngle, _power);
             }
+            else if (currboom == Cool)
+            {
+                CoolManager.coolLeft -= 1;
+                currboomsleft -= 1;
+                ScoreManager.Thrown += 1;
+                Coolboom.throwboomerang(_lookAngle,_power);
+            }
         }
         else if (_thrown)
         {
-            if (currboom == Blade || currboom == Quad || currboom == Bouncy)
+            if (currboom == Blade || currboom == Quad || currboom == Bouncy || currboom == Cool)
             {
                 if (currboom == Blade) Bladeboom.gravity();
                 if (currboom == Quad) Quadboom.gravity();
+                if (currboom == Cool) Coolboom.moveupdate();
                 if (Mathf.Abs(
                         (Camera.main.transform.position.y - (Camera.main.orthographicSize)) - transform.position.y) <=
                     0.5f || Mathf.Abs(
@@ -173,10 +186,7 @@ public class Boomerang : MonoBehaviour
                         (Camera.main.transform.position.x - (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <=
                     0.5f)
                 {
-                    _thrown = false;
-                    _forward = true;
-                    _boom_rb.velocity = new Vector3(0f, 0f, 0f);
-                    arrow.localScale = new Vector3(0f, 0f, 0f);
+                    resetboom();
 
                 }
             }
@@ -198,15 +208,19 @@ public class Boomerang : MonoBehaviour
             else if (!_forward & Vector3.Distance(_distancereleased, transform.position) <= 1f || 
                      !_forward & Mathf.Abs((Camera.main.transform.position.x - (Camera.main.aspect * Camera.main.orthographicSize)) - transform.position.x) <= 0.5f)
             {
-                _thrown = false;
-                _forward = true;
-                _boom_rb.velocity = new Vector3(0f,0f,0f);
-                arrow.localScale = new Vector3(0f,0f,0f);
+                resetboom();
             }
         }
     }
-        
 
+
+    public static void resetboom()
+    {
+        _thrown = false;
+        _forward = true;
+        _boom_rb.velocity = new Vector3(0f,0f,0f);
+        globalArrow.localScale = new Vector3(0f,0f,0f);
+    }
     private void LateUpdate()
     {
         if (!_thrown) 
@@ -246,29 +260,15 @@ public class Boomerang : MonoBehaviour
                 case "Quad":
                     currboom = Quad;
                     break;
+                case "Cool":
+                    currboom = Cool;
+                    break;
             }
             currboom.SetActive(true);
         }
         newboom = null;
     }
-
     
-    /*private void OnCollisionEnter2D(Collision2D other)
-    {
-        GameObject GO = other.gameObject;
-        switch (GO.tag) // which object has it collided with 
-        {
-            case "Platform":
-                Debug.Log("Platform object");
-                _boom_rb.velocity = new Vector3(0f, 0f, 0f);
-                _thrown = false;
-                break;
-            case "Greenery":
-                //Debug.Log("Greenery object");
-                break;
-        }
-    }*/
-
   public static void GameOver()
   {
       gameover = true;
