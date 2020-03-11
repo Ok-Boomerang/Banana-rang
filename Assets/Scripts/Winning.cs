@@ -15,6 +15,7 @@ public class Winning : MonoBehaviour
     public int bladeBooms;
     public int bounceBooms;
     public int quadBooms;
+    public int coolBooms;
     public GameObject gameOverPanel;
     public string overText = "Good Try";
     public static int _startBooms;
