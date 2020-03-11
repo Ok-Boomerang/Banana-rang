@@ -58,6 +58,12 @@ public class Quadboom : MonoBehaviour
             case "Water":
                 grav = .8f;
                 break;
+            case "HorizontalPlatform":
+
+                boomer.GetComponent<Rigidbody2D>().velocity = new Vector3(0f, 0f, 0f);
+                Boomerang._thrown = false;
+                Boomerang.globalArrow.localScale = new Vector3(0f, 0f, 0f);
+                break;
         }
     }
 }
