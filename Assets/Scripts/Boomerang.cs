@@ -40,7 +40,6 @@ public class Boomerang : MonoBehaviour
     public int Bouncenum;
     public int Quadnum;
     public int Coolnum;
-    public static bool restarted = false;
    // end of vars 
    
    //private DebugHUD _hud;
@@ -282,7 +281,7 @@ public class Boomerang : MonoBehaviour
       Winning.boomerangsLeft = Winning._startBooms;
       _thrown = false;
       _forward = true;
-       restarted = true;
+       PopUpManager.restarted = true;
 
   }
 

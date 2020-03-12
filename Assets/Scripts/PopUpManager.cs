@@ -19,6 +19,7 @@ public class PopUpManager : MonoBehaviour
     private GameObject biPop;
     private GameObject biPop2;
     private GameObject bladePop;
+    public static bool restarted = false;
     void Start()
     {
         if (GameObject.Find("ParPanel"))
@@ -27,7 +28,7 @@ public class PopUpManager : MonoBehaviour
             parPop = GameObject.Find("parPop").gameObject;
             Button parbtn = parPop.GetComponent<Button>();
             parbtn.onClick.AddListener(Close);
-            if (Boomerang.restarted) ParPanel.SetActive(false);
+            if (restarted) ParPanel.SetActive(false);
             else ParPanel.SetActive(true);
         }
         if(GameObject.Find("BoomerangsPanel"))
@@ -52,7 +53,7 @@ public class PopUpManager : MonoBehaviour
             mushPop = GameObject.Find("mushPop").gameObject;
             Button mushbtn = mushPop.GetComponent<Button>();
             mushbtn.onClick.AddListener(Close2);
-            if (Boomerang.restarted) MushPanel.SetActive(false);
+            if (restarted) MushPanel.SetActive(false);
             else MushPanel.SetActive(true);
         }
         if(GameObject.Find("BiPanel"))
@@ -61,7 +62,7 @@ public class PopUpManager : MonoBehaviour
             biPop = GameObject.Find("biPop").gameObject;
             Button bibtn = biPop.GetComponent<Button>();
             bibtn.onClick.AddListener(Close3);
-            if (Boomerang.restarted) BiPanel.SetActive(false);
+            if (restarted) BiPanel.SetActive(false);
             else BiPanel.SetActive(true);
         }
         if(GameObject.Find("BiPanel2"))
@@ -70,7 +71,7 @@ public class PopUpManager : MonoBehaviour
             biPop2 = GameObject.Find("biPop2").gameObject;
             Button bibtn2 = biPop2.GetComponent<Button>();
             bibtn2.onClick.AddListener(Close4);
-            if (Boomerang.restarted) BiPanel2.SetActive(false);
+            if (restarted) BiPanel2.SetActive(false);
             else BiPanel2.SetActive(true);
         }
         if (GameObject.Find("BladePanel"))
@@ -79,7 +80,7 @@ public class PopUpManager : MonoBehaviour
             bladePop = GameObject.Find("bladePop").gameObject;
             Button bladebtn = bladePop.GetComponent<Button>();
             bladebtn.onClick.AddListener(Close5);
-            if (Boomerang.restarted) BladePanel.SetActive(false);
+            if (restarted) BladePanel.SetActive(false);
             else BladePanel.SetActive(true);
         }
 

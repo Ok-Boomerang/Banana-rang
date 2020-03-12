@@ -58,6 +58,7 @@ public class Winning : MonoBehaviour
     {
         if ((boomerangsLeft <= 0 & !Boomerang._thrown)| ScoreManager.Score == _maxScore)
         {
+            PopUpManager.restarted = false;
             if (ScoreManager.Score == _maxScore)
             {
                 if (boomerangsLeft <= _startBooms - globalPar - 2) { overText = "Double Bogey"; }
